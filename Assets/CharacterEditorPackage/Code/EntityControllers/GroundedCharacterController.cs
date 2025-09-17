@@ -9,6 +9,7 @@ using System.Collections;
 //--------------------------------------------------------------------
 public class GroundedCharacterController : CharacterControllerBase
 {
+    [SerializeField] bool camlimiter;
     [SerializeField] float m_WalkForce = 0.0f;
     [SerializeField] float m_WalkForceApplyLimit = 0.0f;
     [SerializeField] float m_StoppingForce = 0.0f;
@@ -120,7 +121,11 @@ public class GroundedCharacterController : CharacterControllerBase
         Vector2 currentVel = m_ControlledCollider.GetVelocity();
         Vector2 fInput = GetDirectedInputMovement() * GetInputForce();
         fInput = ClampInputVelocity(fInput, currentVel, GetInputForceApplyLimit());
+        if (camlimiter)
+        {
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x,-10,12),transform.position.y,transform.position.z);
 
+        }
         Vector2 fGravity = GetGravity();
 
         Vector2 fDrag = -0.5f * (currentVel.sqrMagnitude) * m_DragConstant * currentVel.normalized;
