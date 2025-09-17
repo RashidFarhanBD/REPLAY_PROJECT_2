@@ -61,10 +61,10 @@ public class PlayerAnimator : MonoBehaviour
 
         CheckAnimationState();
 
-        ParticleSystem.MainModule jumpPSettings = _jumpParticle.main;
+      //  ParticleSystem.MainModule jumpPSettings = _jumpParticle.main;
      //   jumpPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
-        ParticleSystem.MainModule landPSettings = _landParticle.main;
-        landPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
+       // ParticleSystem.MainModule landPSettings = _landParticle.main;
+       // landPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
     }
 
     private void CheckAnimationState()
