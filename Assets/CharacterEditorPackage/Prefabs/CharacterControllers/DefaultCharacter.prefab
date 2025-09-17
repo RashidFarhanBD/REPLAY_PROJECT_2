@@ -9963,17 +9963,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ControlledCollider: {fileID: 11471932}
   m_AbilityManager: {fileID: 11449546}
-  m_WalkForce: 28
-  m_WalkForceApplyLimit: 16
-  m_StoppingForce: 80
+  m_WalkForce: 15
+  m_WalkForceApplyLimit: 15
+  m_StoppingForce: 150
   m_ApplyStoppingForceWhenActivelyBraking: 1
-  m_AirControl: 0.7
+  m_AirControl: 1
   m_AirForceApplyLimit: 5
   m_DragConstant: 0.04
   m_Gravity: 40
   m_ApplyGravityOnGround: 1
   m_ApplyGravityIntoGroundNormal: 1
-  m_FrictionConstant: 8
+  m_FrictionConstant: 1
   m_AlignRotationToGroundedNormal: 0
   m_JumpVelocity: 16
   m_JumpCutVelocity: 6
