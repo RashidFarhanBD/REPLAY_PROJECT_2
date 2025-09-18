@@ -14,8 +14,12 @@ public class PlayerMovement : MonoBehaviour
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
+    #region Double JUmp stuff
+    private int _jumpsLeft;
+    [SerializeField] private int maxJumps = 2; // 2 = single + double jump
 
-	#region COMPONENTS
+    #endregion
+    #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
 	//Script to handle all player animations, all references can be safely removed if you're importing into your own project.
 	public PlayerAnimator AnimHandler { get; private set; }
@@ -138,6 +142,8 @@ public class PlayerMovement : MonoBehaviour
                 }
 
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
+
+                _jumpsLeft = maxJumps;
             }		
 
 			//Right Wall Check
@@ -187,8 +193,9 @@ public class PlayerMovement : MonoBehaviour
 				_isJumpCut = false;
 				_isJumpFalling = false;
 				Jump();
+				_jumpsLeft--;
 
-				AnimHandler.startedJumping = true;
+                AnimHandler.startedJumping = true;
 			}
 			//WALL JUMP
 			else if (CanWallJump() && LastPressedJumpTime > 0)
@@ -202,8 +209,22 @@ public class PlayerMovement : MonoBehaviour
 				_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 
 				WallJump(_lastWallJumpDir);
-			}
-		}
+				_jumpsLeft = maxJumps - 1;
+
+            }
+            // Double jump (extra mid-air)
+            else if (_jumpsLeft > 0 && LastPressedJumpTime > 0)
+            {
+                IsJumping = true;
+                _isJumpCut = false;
+                _isJumpFalling = false;
+                Jump();
+                _jumpsLeft--;
+                AnimHandler.startedJumping = true;
+            }
+
+
+        }
 		#endregion
 
 		#region DASH CHECKS
