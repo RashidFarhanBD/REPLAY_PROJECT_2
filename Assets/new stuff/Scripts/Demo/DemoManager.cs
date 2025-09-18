@@ -20,7 +20,7 @@ public class DemoManager : MonoBehaviour
 
     private void Awake()
     {
-        _cam = FindObjectOfType<Camera>();
+        _cam =Camera.main;
         _player = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
     }
 
