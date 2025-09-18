@@ -12,7 +12,7 @@ public class PlayerAnimator : MonoBehaviour
 
     [Header("Movement Tilt")]
     [SerializeField] private float maxTilt;
-    [SerializeField][Range(0, 1)] private float tiltSpeed;
+    [SerializeField] [Range(0, 1)] private float tiltSpeed;
 
     [Header("Particle FX")]
     [SerializeField] private GameObject jumpFX;
@@ -20,7 +20,7 @@ public class PlayerAnimator : MonoBehaviour
     private ParticleSystem _jumpParticle;
     private ParticleSystem _landParticle;
 
-    public bool startedJumping { private get; set; }
+    public bool startedJumping {  private get; set; }
     public bool justLanded { private get; set; }
 
     public float currentVelY;
@@ -31,7 +31,7 @@ public class PlayerAnimator : MonoBehaviour
         spriteRend = GetComponentInChildren<SpriteRenderer>();
         anim = spriteRend.GetComponent<Animator>();
 
-      //  demoManager = FindObjectOfType<DemoManager>();
+        demoManager = FindObjectOfType<DemoManager>();
 
         _jumpParticle = jumpFX.GetComponent<ParticleSystem>();
         _landParticle = landFX.GetComponent<ParticleSystem>();
@@ -53,7 +53,7 @@ public class PlayerAnimator : MonoBehaviour
             tiltProgress = Mathf.InverseLerp(-mov.Data.runMaxSpeed, mov.Data.runMaxSpeed, mov.RB.linearVelocity.x);
             mult = (mov.IsFacingRight) ? 1 : -1;
         }
-
+            
         float newRot = ((tiltProgress * maxTilt * 2) - maxTilt);
         float rot = Mathf.LerpAngle(spriteRend.transform.localRotation.eulerAngles.z * mult, newRot, tiltSpeed);
         spriteRend.transform.localRotation = Quaternion.Euler(0, 0, rot * mult);
@@ -64,13 +64,14 @@ public class PlayerAnimator : MonoBehaviour
         ParticleSystem.MainModule jumpPSettings = _jumpParticle.main;
        // jumpPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
         ParticleSystem.MainModule landPSettings = _landParticle.main;
-      //  landPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
+       // landPSettings.startColor = new ParticleSystem.MinMaxGradient(demoManager.SceneData.foregroundColor);
     }
 
     private void CheckAnimationState()
     {
         if (startedJumping)
         {
+            Debug.Log("wwwwwdqwdwww");
             anim.SetTrigger("Jump");
             GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
@@ -80,6 +81,7 @@ public class PlayerAnimator : MonoBehaviour
 
         if (justLanded)
         {
+            Debug.Log("wwwwww");
             anim.SetTrigger("Land");
             GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);

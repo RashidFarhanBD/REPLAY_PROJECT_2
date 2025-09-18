@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 829574157}
   - component: {fileID: 829574156}
   - component: {fileID: 829574160}
-  - component: {fileID: 829574159}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -213,19 +212,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &829574159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 829574155}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb8358da193fea448effae0ee247c55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraScroller
-  scrollSpeed: 1
 --- !u!114 &829574160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1261,6 +1247,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b4fe9cae7427c428c656b861064848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestrictMovement
+--- !u!114 &1325882416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325882404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85b4fe9cae7427c428c656b861064848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RestrictMovement
 --- !u!1001 &1412571655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1324,11 +1322,14 @@ PrefabInstance:
     - target: {fileID: 3829291904542251300, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: Data
       value: 
-      objectReference: {fileID: 11400000, guid: 051daff400f8be94f95d5fc2f0bd6e15, type: 2}
+      objectReference: {fileID: 11400000, guid: e6de6150ab38ff74b9ee0fa32028adf7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 654590625011772493, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1325882416}
     - targetCorrespondingSourceObject: {fileID: 654590625011772493, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1325882410}
@@ -1343,7 +1344,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1491412870}
   - component: {fileID: 1491412869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
