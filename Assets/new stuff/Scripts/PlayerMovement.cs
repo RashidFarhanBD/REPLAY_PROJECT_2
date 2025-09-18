@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (LastOnGroundTime > 0 && !IsJumping && !IsWallJumping)
         {
-			Debug.Log("here n jumpfalling false");
+			//Debug.Log("here n jumpfalling false");
 			_isJumpCut = false;
 
 			_isJumpFalling = false;
@@ -209,7 +209,9 @@ public class PlayerMovement : MonoBehaviour
 				_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 
 				WallJump(_lastWallJumpDir);
-				_jumpsLeft = maxJumps - 1;
+				// tweak this if needed;
+				//_jumpsLeft = maxJumps - 1;
+				_jumpsLeft = 0;
 
             }
             // Double jump (extra mid-air)
