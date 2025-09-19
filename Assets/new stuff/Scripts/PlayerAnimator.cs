@@ -22,7 +22,7 @@ public class PlayerAnimator : MonoBehaviour
 
     public bool startedJumping {  private get; set; }
     public bool justLanded { private get; set; }
-
+    public bool Dash {  private get; set; }
     public float currentVelY;
 
     private void Start()
@@ -92,5 +92,6 @@ public class PlayerAnimator : MonoBehaviour
       //  anim.SetBool("Grounded", mov.groun)
         anim.SetFloat("Vel Y", mov.RB.linearVelocity.y);
         anim.SetFloat("Vel X", Mathf.Abs(mov.RB.linearVelocity.x));
+        anim.SetBool("Dash", Dash);
     }
 }

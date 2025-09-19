@@ -517,8 +517,9 @@ public class PlayerMovement : MonoBehaviour
 
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
+		AnimHandler.Dash = true;
 
-		float startTime = Time.time;
+        float startTime = Time.time;
 
 		_dashesLeft--;
 		_isDashAttacking = true;
@@ -537,9 +538,10 @@ public class PlayerMovement : MonoBehaviour
 		startTime = Time.time;
 
 		_isDashAttacking = false;
+        AnimHandler.Dash = false;
 
-		//Begins the "end" of our dash where we return some control to the player but still limit run acceleration (see Update() and Run())
-		SetGravityScale(Data.gravityScale);
+        //Begins the "end" of our dash where we return some control to the player but still limit run acceleration (see Update() and Run())
+        SetGravityScale(Data.gravityScale);
 		RB.linearVelocity = Data.dashEndSpeed * dir.normalized;
 
 		while (Time.time - startTime <= Data.dashEndTime)

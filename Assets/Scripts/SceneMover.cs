@@ -12,7 +12,7 @@ public class SceneMover : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         transform.position += Vector3.right * scrollSpeed * Time.deltaTime;
     }
