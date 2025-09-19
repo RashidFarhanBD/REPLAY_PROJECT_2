@@ -21322,6 +21322,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8209280069874063342, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: maxTilt
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
