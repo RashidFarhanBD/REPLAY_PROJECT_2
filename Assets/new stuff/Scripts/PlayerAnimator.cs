@@ -31,7 +31,7 @@ public class PlayerAnimator : MonoBehaviour
         spriteRend = GetComponentInChildren<SpriteRenderer>();
         anim = spriteRend.GetComponent<Animator>();
 
-        demoManager = FindObjectOfType<DemoManager>();
+       // demoManager = FindObjectOfType<DemoManager>();
 
         _jumpParticle = jumpFX.GetComponent<ParticleSystem>();
         _landParticle = landFX.GetComponent<ParticleSystem>();
@@ -89,6 +89,8 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
 
+      //  anim.SetBool("Grounded", mov.groun)
         anim.SetFloat("Vel Y", mov.RB.linearVelocity.y);
+        anim.SetFloat("Vel X", Mathf.Abs(mov.RB.linearVelocity.x));
     }
 }

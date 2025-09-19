@@ -1,8 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using System;
-using System.Diagnostics;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
-
 public class FireflyPickup : MonoBehaviour, Ipickupable
 {
     public static event Action OnPickUpFireFly; 
@@ -29,13 +28,14 @@ public class FireflyPickup : MonoBehaviour, Ipickupable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
         Debug.Log(collision.gameObject.name);
         if (collision.CompareTag("Player"))
         {
 
             PickUp();
 
-
+           
         }
     }
 

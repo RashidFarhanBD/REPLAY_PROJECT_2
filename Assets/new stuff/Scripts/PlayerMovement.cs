@@ -7,7 +7,6 @@
  */
 
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -170,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
 				
 				if(LastOnGroundTime < -0.1f)
                 {
-                    Debug.Log(" ground check okay??");
+                   // Debug.Log(" ground check okay??");
                     AnimHandler.justLanded = true;
                 }
 

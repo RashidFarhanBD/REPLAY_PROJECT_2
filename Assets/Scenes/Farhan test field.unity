@@ -2743,6 +2743,34 @@ PrefabInstance:
       propertyPath: Data
       value: 
       objectReference: {fileID: 11400000, guid: e6de6150ab38ff74b9ee0fa32028adf7, type: 2}
+    - target: {fileID: 4441231556916090439, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4650036059238151431, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420673483063859145, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3204480812468917802, guid: 301c3ba377a62f143a6251d6b5dce3b6, type: 3}
+    - target: {fileID: 5420673483063859145, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5967925283333294368, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6155582273425842178, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5b010848fbc4ce341a8c45a42ea226c9, type: 2}
+    - target: {fileID: 8209280069874063342, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: maxTilt
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
