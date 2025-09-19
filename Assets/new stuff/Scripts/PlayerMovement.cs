@@ -7,6 +7,7 @@
  */
 
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -79,7 +80,39 @@ public class PlayerMovement : MonoBehaviour
     #region LAYERS & TAGS
     [Header("Layers & Tags")]
 	[SerializeField] private LayerMask _groundLayer;
-	#endregion
+    #endregion
+
+
+    private void OnEnable()
+    {
+        FireflyPickup.OnPickUpFireFly += FireflyPickup_OnPickUpFireFly;
+    }
+
+    private void OnDisable()
+    {
+        FireflyPickup.OnPickUpFireFly -= FireflyPickup_OnPickUpFireFly;
+
+    }
+
+    private void FireflyPickup_OnPickUpFireFly()
+    {
+
+        // Reset jumps
+        _jumpsLeft = maxJumps;
+        IsJumping = false;
+        IsWallJumping = false;
+
+        // Reset wall timers
+        LastOnWallRightTime = 0;
+        LastOnWallLeftTime = 0;
+
+        // Reset dash
+        IsDashing = false;
+        _dashesLeft = Data.dashAmount;
+        _isDashAttacking = false;
+
+
+    }
 
     private void Awake()
 	{
