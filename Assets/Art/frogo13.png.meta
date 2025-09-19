@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: a235faebfaf12ed4ba6db79e691532c2
+guid: dd55cb16a0500094297c967e170cc081
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7692189232032695882
-    second: i99x4_0
-  - first:
-      213: -2191707633099913159
-    second: i99x4_1
+      213: 2264956237835792335
+    second: frogo13_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: i99x4_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 364
-        width: 540
-        height: 176
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a46c4600a5520ca60800000000000000
-      internalID: 7692189232032695882
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: i99x4_1
+      name: frogo13_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 540
-        height: 176
+        width: 40
+        height: 49
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9384195158d7591e0800000000000000
-      internalID: -2191707633099913159
+      spriteID: fcfe104b2bdbe6f10800000000000000
+      internalID: 2264956237835792335
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8e705c4de3f362a4591e3f8eb2db1b24
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -158,14 +133,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceOnImport
-        value: False
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":18.0,"y":18.0},"gridSpriteSize":{"x":30.0,"y":30.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":true,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      i99x4_0: 7692189232032695882
-      i99x4_1: -2191707633099913159
+      frogo13_0: 2264956237835792335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
