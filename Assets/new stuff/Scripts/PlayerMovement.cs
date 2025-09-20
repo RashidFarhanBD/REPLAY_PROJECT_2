@@ -127,6 +127,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		if (GameManager.instance.GetIsPlayerDead()) return;
+
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
@@ -338,9 +340,11 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
-	{
-		//Handle Run
-		if (!IsDashing)
+    {
+        if (GameManager.instance.GetIsPlayerDead()) return;
+
+        //Handle Run
+        if (!IsDashing)
 		{
 			if (IsWallJumping)
 				Run(Data.wallJumpRunLerp);

@@ -1,19 +1,74 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
 
 
     public static GameManager instance;
+    public PlayerMovement playerMovement;
+    public SceneMover sceneMover;   
     bool isGameOver;
-
+    private bool isPlayerDead;
+    public JuiceManager juiceManager;
+    [Header("Designer look here")]
+    [Tooltip ("time to restart after player dies")]
+    public float gameRestartTime = 2f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
+
+    private void OnEnable()
+    {
+        Traps.OnHitTrap += Traps_OnHitTrap;
+    }
+
+    private void Traps_OnHitTrap(Traps obj)
+    {
+        if (isPlayerDead) return;
+        //stop player, stop camera 
+        isPlayerDead = true;
+        playerMovement.enabled = false;
+
+        playerMovement.RB.linearVelocity = Vector2.zero;
+        playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
+        sceneMover.switchCameraMove(false);
+
+        StartCoroutine(RestartLevel());
+    }
+
+
+    IEnumerator RestartLevel()
+    {
+
+
+        yield return new WaitForSeconds(gameRestartTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+
+    }
+    private void OnDisable()
+    {
+        Traps.OnHitTrap-= Traps_OnHitTrap;
+    }
     private void Awake()
     {
-        if(instance==null) instance = this; 
+        if(instance==null) instance = this;
+
+        if (sceneMover == null) sceneMover =
+            Camera.main.GetComponent<SceneMover>();
+        if (playerMovement == null) playerMovement =
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+
+        if (juiceManager == null)
+            juiceManager = gameObject.GetComponent<JuiceManager>();
+
     }
+
+   
+ 
+
+   
 
     void Start()
     {
@@ -24,6 +79,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool GetIsPlayerDead()
+    {
+
+        return isPlayerDead;    
     }
     public void DoShakeScreen()
     {
