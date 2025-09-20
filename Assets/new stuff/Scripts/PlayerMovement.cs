@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
+	public DashEffect dashEffect;
     #region Double JUmp stuff
     private int _jumpsLeft;
     [SerializeField] private int maxJumps = 2; // 2 = single + double jump
@@ -117,12 +118,14 @@ public class PlayerMovement : MonoBehaviour
 	{
 		RB = GetComponent<Rigidbody2D>();
 		AnimHandler = GetComponent<PlayerAnimator>();
+		dashEffect = GetComponent<DashEffect>();	
 	}
 
 	private void Start()
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
+		dashEffect.Init(Data.dashEndTime);
 	}
 
 	private void Update()
@@ -522,7 +525,7 @@ public class PlayerMovement : MonoBehaviour
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
 		AnimHandler.Dash = true;
-
+		dashEffect.StartDash();	
         float startTime = Time.time;
 
 		_dashesLeft--;
