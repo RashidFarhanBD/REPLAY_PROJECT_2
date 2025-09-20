@@ -34,10 +34,10 @@ public class GameManager : MonoBehaviour
         SoundManager.Instance.PlayBGM(SoundManager.Instance.bgmCLip,.2f,true);
         yield return new WaitForSeconds(snakeDelayTime);
         SoundManager.Instance.PauseBGM();
-        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, 2).OnComplete(() =>
+        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, 2.5f).OnComplete(() =>
         {
             juiceManager.DoCameraShakeForSnake(Camera.main);
-            juiceManager.Flash(.5f);
+            juiceManager.Flash(.25f);
             SoundManager.Instance.ResumeBGM();
 
         }

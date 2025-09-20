@@ -4,12 +4,12 @@ public class RestrictMovement : MonoBehaviour
 {
 
     Camera cam;
-    float  Hbounds;
+   [SerializeField] float  Hbounds =20;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cam = Camera.main;
-       Hbounds=(cam.orthographicSize * Screen.width / Screen.height);
+      // Hbounds=(cam.orthographicSize * Screen.width / Screen.height);
 
 
     }

@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b4fe9cae7427c428c656b861064848, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestrictMovement
+  Hbounds: 20
 --- !u!114 &5495017351784132957
 MonoBehaviour:
   m_ObjectHideFlags: 0

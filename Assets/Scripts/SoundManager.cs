@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Keep between scenes
+        // Keep between scenes
     }
 
 

@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using DG.Tweening;
-using UnityEditor.Rendering;
 using UnityEngine.UI;
 using System.Collections;
 public class JuiceManager : MonoBehaviour
