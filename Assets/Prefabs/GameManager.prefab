@@ -215,8 +215,8 @@ MonoBehaviour:
   jumpClip: {fileID: 8300000, guid: 38e53b588c84c8e408ebb14853c2d095, type: 3}
   doubleJumpClip: {fileID: 8300000, guid: 2369913a59c961b4fa68a186cbf3a3f4, type: 3}
   landClip: {fileID: 0}
-  dashClip: {fileID: 8300000, guid: c4abab37354c3214d9b9da5ec5e6015d, type: 3}
-  deathClip: {fileID: 0}
+  dashClip: {fileID: 8300000, guid: c40dadf8be6f9a54aae67fbdf69b5408, type: 3}
+  deathClip: {fileID: 8300000, guid: 88c5bf01e08834147b6cca81a5dc3a22, type: 3}
 --- !u!82 &7435051398159802006
 AudioSource:
   m_ObjectHideFlags: 0
