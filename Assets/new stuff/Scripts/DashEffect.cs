@@ -20,7 +20,6 @@ public class DashEffect : MonoBehaviour
     public void Dash()
     {
 
-        Debug.Log("dasggg");
         if (dashTrail != null) 
             dashTrail.emitting = true;   // turn on trail
 
