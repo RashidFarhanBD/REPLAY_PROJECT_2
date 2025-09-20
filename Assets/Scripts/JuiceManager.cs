@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEditor.Rendering;
 using UnityEngine.UI;
+using System.Collections;
 public class JuiceManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -17,6 +18,7 @@ public class JuiceManager : MonoBehaviour
         flashImage.DOFade(1f, duration * 0.5f)    // fade in
             .OnComplete(() =>
             {
+                DoCameraShakeForTrap(Camera.main);
                 flashImage.DOFade(0f, duration * 0.5f); // fade out
             }).SetDelay(.5f);
     }
@@ -29,12 +31,29 @@ public class JuiceManager : MonoBehaviour
 
     public void DoHitFx(SpriteRenderer renderer)
     {
+        //StartCoroutine(ShowTimeFX());
         var temp = renderer.material;
         renderer.material = hitfxMat;
         renderer.DOColor(Color.red, .5f);
         renderer.transform.DOShakeRotation(1.5f, 1, 15, 90);
         Flash();
         
+    }
+
+
+    IEnumerator ShowTimeFX()
+    {
+        yield return new WaitForSeconds(1); //2 or .5
+        //Debug.Log("time slowed");
+        Time.timeScale = .3f;
+
+
+        yield return new WaitForSeconds(.2f);
+        //Debug.Log("time normal");
+        Time.timeScale = 1;
+
+
+
     }
 }
 
