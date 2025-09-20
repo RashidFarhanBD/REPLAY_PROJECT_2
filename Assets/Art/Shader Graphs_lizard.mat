@@ -55,8 +55,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _Size: 1
-    - _Speedx_1: 0.6
-    - _Speedy_1: 0.6
+    - _Speedx_1: 0.5
+    - _Speedy_1: 0.5
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.1176471}
     - _Speed: {r: 155.86, g: 0, b: 0, a: 0}
