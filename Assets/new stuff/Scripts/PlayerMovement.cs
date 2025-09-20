@@ -118,7 +118,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		RB = GetComponent<Rigidbody2D>();
 		AnimHandler = GetComponent<PlayerAnimator>();
-		dashEffect = GetComponent<DashEffect>();	
 	}
 
 	private void Start()

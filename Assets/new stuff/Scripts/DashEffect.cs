@@ -11,20 +11,21 @@ public class DashEffect : MonoBehaviour
     {
 
         this.dashtime = dashtime;
+        dashTrail.emitting = false;
     }
     public void StartDash()
     {
-       
 
-        if (dashTrail != null)
+        Debug.Log("dasggg");
+        if (dashTrail != null) 
             dashTrail.emitting = true;   // turn on trail
-
+           
         StartCoroutine(StopDashTrail()); // stop after dash ends
     }
 
     private IEnumerator StopDashTrail()
     {
-        yield return new WaitForSeconds(dashtime); // match your dash duration
+        yield return new WaitForSeconds(1); // match your dash duration
         if (dashTrail != null)
             dashTrail.emitting = false;
     }

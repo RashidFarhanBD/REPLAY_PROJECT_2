@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2657586170934750119}
   - component: {fileID: 516239773993727033}
   - component: {fileID: 2132506121993110782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7509675967481706626}
   - component: {fileID: 2360736162090980782}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
