@@ -3,6 +3,7 @@ using DG.Tweening;
 using UnityEditor.Rendering;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.VisualScripting;
 public class JuiceManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,8 +46,11 @@ public class JuiceManager : MonoBehaviour
         renderer.DOColor(Color.red, .5f);
         renderer.transform.DOShakeRotation(1.5f, 1, 15, 90);
         Flash();
+        renderer.transform.DOScale(Vector3.zero, 1.5f).SetDelay(1f);
         
     }
+
+    
 
 
     IEnumerator ShowTimeFX()
