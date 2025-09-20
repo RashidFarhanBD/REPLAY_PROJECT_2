@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 540109637954214635}
   m_Layer: 0
   m_Name: lizard
-  m_TagString: Untagged
+  m_TagString: Snake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
