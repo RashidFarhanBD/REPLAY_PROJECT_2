@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         Camera.main.DOShakePosition(.6f, 1.2f,15,120);
         juiceManager.DoCameraShakeForTrap(Camera.main);
         juiceManager.DoHitFx(playerMovement.GetComponentInChildren<SpriteRenderer>());
-        juiceManager.Flash();
+       
         StartCoroutine(RestartLevel());
         OnDeathFX();
     }
