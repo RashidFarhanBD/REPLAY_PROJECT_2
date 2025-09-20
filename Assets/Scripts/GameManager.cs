@@ -1,6 +1,8 @@
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
 using System.Collections;
+using System.Reflection;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,13 +19,41 @@ public class GameManager : MonoBehaviour
     [Header("Designer look here")]
     [Tooltip ("time to restart after player dies")]
     public float gameRestartTime = 2f;
+
+    [Header("Snake stuff")]
+    Vector2 snakeStartingPos = new Vector3 (-15,0,20);
+    Vector2 snakeOffPos = new Vector3 (-35,0,17.5f);
+   
+    public GameObject snakeObject;
+    public float snakeDelayTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    IEnumerator InitSnake()
+    {
+        yield return new WaitForSeconds(snakeDelayTime);
+        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x,2);
+
+
+
+    }
+
+    public void Start()
+    {
+
+
+        StartCoroutine(InitSnake());    
+    }
 
 
     private void OnEnable()
     {
         Traps.OnHitTrap += Traps_OnHitTrap;
+        Snake.OnSnakeHit += Snake_OnSnakeHit;
+    }
+
+    private void Snake_OnSnakeHit()
+    {
+        
     }
 
     private void Traps_OnHitTrap(Traps obj)
@@ -65,6 +95,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         Traps.OnHitTrap-= Traps_OnHitTrap;
+        Snake.OnSnakeHit -= Snake_OnSnakeHit;
     }
     private void Awake()
     {
@@ -77,7 +108,8 @@ public class GameManager : MonoBehaviour
 
         if (juiceManager == null)
             juiceManager = gameObject.GetComponent<JuiceManager>();
-
+        if (snakeObject == null)
+            snakeObject = GameObject.FindGameObjectWithTag("Snake");
     }
 
    
@@ -85,10 +117,7 @@ public class GameManager : MonoBehaviour
 
    
 
-    void Start()
-    {
-        
-    }
+  
 
     // Update is called once per frame
     void Update()
