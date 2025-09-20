@@ -28,6 +28,36 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject); // Keep between scenes
     }
 
+
+    #region BGM
+    public void PlayBGM(AudioClip clip, bool loop = true)
+    {
+        if (bgmSource == null || clip == null) return;
+
+        bgmSource.clip = clip;
+        bgmSource.loop = loop;
+        bgmSource.Play();
+    }
+
+    public void StopBGM()
+    {
+        if (bgmSource != null)
+            bgmSource.Stop();
+    }
+
+    public void PauseBGM()
+    {
+        if (bgmSource != null && bgmSource.isPlaying)
+            bgmSource.Pause();
+    }
+
+    public void ResumeBGM()
+    {
+        if (bgmSource != null && !bgmSource.isPlaying)
+            bgmSource.UnPause();
+    }
+    #endregion
+
     public void PlayJump()
     {
         PlaySFX(jumpClip);

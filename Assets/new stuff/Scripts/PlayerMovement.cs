@@ -227,7 +227,11 @@ public class PlayerMovement : MonoBehaviour
 				IsWallJumping = false;
 				_isJumpCut = false;
 				_isJumpFalling = false;
-				Jump();
+				 SoundManager.Instance.PlayJump();
+				
+                
+
+                Jump();
 				_jumpsLeft--;
 
                 AnimHandler.startedJumping = true;
@@ -244,9 +248,10 @@ public class PlayerMovement : MonoBehaviour
 				_lastWallJumpDir = (LastOnWallRightTime > 0) ? -1 : 1;
 
 				WallJump(_lastWallJumpDir);
-				// tweak this if needed;
-				//_jumpsLeft = maxJumps - 1;
-				_jumpsLeft = 0;
+                SoundManager.Instance.PlayDoubleJump();
+                // tweak this if needed;
+                //_jumpsLeft = maxJumps - 1;
+                _jumpsLeft = 0;
 
             }
             // Double jump (extra mid-air)
@@ -255,6 +260,7 @@ public class PlayerMovement : MonoBehaviour
                 IsJumping = true;
                 _isJumpCut = false;
                 _isJumpFalling = false;
+                SoundManager.Instance.PlayDoubleJump();
                 Jump();
                 _jumpsLeft--;
                 AnimHandler.startedJumping = true;
@@ -374,13 +380,17 @@ public class PlayerMovement : MonoBehaviour
 	public void OnJumpUpInput()
 	{
 		if (CanJumpCut() || CanWallJumpCut())
+		{
 			_isJumpCut = true;
+		}
+
 	}
 
 	public void OnDashInput()
 	{
 		LastPressedDashTime = Data.dashInputBufferTime;
-	}
+        SoundManager.Instance.PlayDash();
+    }
     #endregion
 
     #region GENERAL METHODS
