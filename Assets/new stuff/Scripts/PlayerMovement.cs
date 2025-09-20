@@ -525,7 +525,7 @@ public class PlayerMovement : MonoBehaviour
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
 		AnimHandler.Dash = true;
-		//dashEffect.Dash();	
+		dashEffect.Dash();	
         float startTime = Time.time;
 
 		_dashesLeft--;

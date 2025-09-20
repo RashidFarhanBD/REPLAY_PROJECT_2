@@ -71,7 +71,6 @@ public class PlayerAnimator : MonoBehaviour
     {
         if (startedJumping)
         {
-            Debug.Log("wwwwwdqwdwww");
             anim.SetTrigger("Jump");
             GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
@@ -81,7 +80,6 @@ public class PlayerAnimator : MonoBehaviour
 
         if (justLanded)
         {
-            Debug.Log("wwwwww");
             anim.SetTrigger("Land");
             GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));
             Destroy(obj, 1);
