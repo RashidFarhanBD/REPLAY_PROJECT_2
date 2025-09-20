@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public float gameRestartTime = 2f;
 
     [Header("Snake stuff")]
-    Vector2 snakeStartingPos = new Vector3 (-20,0,20);
+    Vector2 snakeStartingPos = new Vector3 (-25,0,20);
     Vector2 snakeOffPos = new Vector3 (-35,0,17.5f);
    
     public GameObject snakeObject;
@@ -59,7 +59,20 @@ public class GameManager : MonoBehaviour
 
     private void Snake_OnSnakeHit()
     {
-        
+        if (isPlayerDead) return;
+        //stop player, stop camera 
+        isPlayerDead = true;
+        playerMovement.enabled = false;
+
+        playerMovement.RB.linearVelocity = Vector2.zero;
+        playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
+        sceneMover.switchCameraMove(false);
+        Camera.main.DOShakePosition(.6f, 1.2f, 15, 120);
+        juiceManager.DoCameraShakeForTrap(Camera.main);
+        juiceManager.DoHitFx(playerMovement.GetComponentInChildren<SpriteRenderer>());
+
+        StartCoroutine(RestartLevel());
+        OnDeathFX();
     }
 
     private void Traps_OnHitTrap(Traps obj)
