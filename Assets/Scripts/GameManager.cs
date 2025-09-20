@@ -1,3 +1,5 @@
+using DG.Tweening;
+using DG.Tweening.Core.Easing;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -34,8 +36,21 @@ public class GameManager : MonoBehaviour
         playerMovement.RB.linearVelocity = Vector2.zero;
         playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
         sceneMover.switchCameraMove(false);
-
+        Camera.main.DOShakePosition(.6f, 1.2f,15,120);
+        juiceManager.DoCameraShakeForTrap(Camera.main);
+        juiceManager.DoHitFx(playerMovement.GetComponentInChildren<SpriteRenderer>());
+        juiceManager.Flash();
         StartCoroutine(RestartLevel());
+        OnDeathFX();
+    }
+
+
+    public void OnDeathFX()
+    {
+
+
+
+
     }
 
 
