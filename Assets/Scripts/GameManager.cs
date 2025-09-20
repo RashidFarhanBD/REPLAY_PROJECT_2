@@ -1,5 +1,6 @@
 using DG.Tweening;
 using DG.Tweening.Core.Easing;
+using System;
 using System.Collections;
 using System.Reflection;
 using Unity.VisualScripting;
@@ -30,13 +31,16 @@ public class GameManager : MonoBehaviour
 
     IEnumerator InitSnake()
     {
+        SoundManager.Instance.PlayBGM(SoundManager.Instance.bgmCLip,.2f,true);
         yield return new WaitForSeconds(snakeDelayTime);
+        SoundManager.Instance.PauseBGM();
         snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, 2).OnComplete(() =>
         {
             juiceManager.DoCameraShakeForSnake(Camera.main);
             juiceManager.Flash(.5f);
+            SoundManager.Instance.ResumeBGM();
 
-            }
+        }
         );
 
 
@@ -60,6 +64,8 @@ public class GameManager : MonoBehaviour
     private void Snake_OnSnakeHit()
     {
         if (isPlayerDead) return;
+        SoundManager.Instance.StopBGM(0);
+
         //stop player, stop camera 
         isPlayerDead = true;
         playerMovement.enabled = false;
@@ -68,16 +74,18 @@ public class GameManager : MonoBehaviour
         playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
         sceneMover.switchCameraMove(false);
         Camera.main.DOShakePosition(.6f, 1.2f, 15, 120);
+        SoundManager.Instance.PlayDeath();
         juiceManager.DoCameraShakeForTrap(Camera.main);
         juiceManager.DoHitFx(playerMovement.GetComponentInChildren<SpriteRenderer>());
 
         StartCoroutine(RestartLevel());
-        OnDeathFX();
     }
 
     private void Traps_OnHitTrap(Traps obj)
     {
         if (isPlayerDead) return;
+        SoundManager.Instance.StopBGM(0);
+
         //stop player, stop camera 
         isPlayerDead = true;
         playerMovement.enabled = false;
@@ -88,18 +96,8 @@ public class GameManager : MonoBehaviour
         Camera.main.DOShakePosition(.6f, 1.2f,15,120);
         juiceManager.DoCameraShakeForTrap(Camera.main);
         juiceManager.DoHitFx(playerMovement.GetComponentInChildren<SpriteRenderer>());
-       
+        SoundManager.Instance.PlayDeath();
         StartCoroutine(RestartLevel());
-        OnDeathFX();
-    }
-
-
-    public void OnDeathFX()
-    {
-
-
-
-
     }
 
 
@@ -164,5 +162,23 @@ public class GameManager : MonoBehaviour
 
 
 
+    }
+
+    internal void GAMEWIN()
+    {
+        if (!isPlayerDead)
+        {
+
+            snakeObject.SetActive(false);
+            playerMovement.enabled = false;
+
+            playerMovement.RB.linearVelocity = Vector2.zero;
+            playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
+            sceneMover.switchCameraMove(false);
+            juiceManager.FadeToWhite();
+            SoundManager.Instance.StopBGM();    
+
+
+        }
     }
 }
