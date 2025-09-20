@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3161685619185296429}
   - component: {fileID: 3829291904542251300}
   - component: {fileID: 8209280069874063342}
-  - component: {fileID: 472246272640631725}
   - component: {fileID: 1920082975575184534}
   - component: {fileID: 279291904928632554}
   - component: {fileID: 4441231556916090439}
@@ -82,20 +81,6 @@ MonoBehaviour:
   jumpFX: {fileID: 3234584074981126610, guid: ef64e6572022fbb47969c1618d73ef20, type: 3}
   landFX: {fileID: 3234584074981126610, guid: 0618e2f871341254cafc1ffc33fc18df, type: 3}
   currentVelY: 0
---- !u!114 &472246272640631725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 654590625011772493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9647fc29389c2a44bf201614d1f1c81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DashEffect
-  dashTrail: {fileID: 0}
-  dashtime: 0
 --- !u!61 &1920082975575184534
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -505,7 +490,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_MaskInteraction: 0
   m_Autodestruct: 0
-  m_Emitting: 0
+  m_Emitting: 1
   m_ApplyActiveColorSpace: 1
 --- !u!1 &4650036059238151431
 GameObject:

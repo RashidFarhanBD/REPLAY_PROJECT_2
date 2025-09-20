@@ -2517,11 +2517,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!96 &221591491 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 3108270561941281681, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-  m_PrefabInstance: {fileID: 1942725146}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &258799477
 GameObject:
   m_ObjectHideFlags: 0
@@ -21519,10 +21514,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3108270561941281681, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: m_Emitting
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.71863
@@ -21563,10 +21554,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5495017351784132957, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: dashTrail
-      value: 
-      objectReference: {fileID: 221591491}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

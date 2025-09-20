@@ -124,7 +124,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
-		dashEffect.Init(Data.dashEndTime);
 	}
 
 	private void Update()
@@ -285,6 +284,8 @@ public class PlayerMovement : MonoBehaviour
 			_isJumpCut = false;
 
 			StartCoroutine(nameof(StartDash), _lastDashDir);
+			//StartCoroutine(StartDash(_lastDashDir));
+		   
 		}
 		#endregion
 
@@ -524,7 +525,7 @@ public class PlayerMovement : MonoBehaviour
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
 		AnimHandler.Dash = true;
-		dashEffect.StartDash();	
+		//dashEffect.Dash();	
         float startTime = Time.time;
 
 		_dashesLeft--;

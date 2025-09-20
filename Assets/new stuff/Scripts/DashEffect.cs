@@ -13,7 +13,7 @@ public class DashEffect : MonoBehaviour
         this.dashtime = dashtime;
         dashTrail.emitting = false;
     }
-    public void StartDash()
+    public void Dash()
     {
 
         Debug.Log("dasggg");
