@@ -50,6 +50,8 @@ MonoBehaviour:
   sceneMover: {fileID: 0}
   juiceManager: {fileID: 0}
   gameRestartTime: 2
+  snakeObject: {fileID: 0}
+  snakeDelayTime: 2
 --- !u!114 &5138064479657051178
 MonoBehaviour:
   m_ObjectHideFlags: 0

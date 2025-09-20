@@ -29,6 +29,14 @@ public class JuiceManager : MonoBehaviour
 
     }
 
+
+    public void DoCameraShakeForSnake(Camera cam)
+    {
+
+        Camera.main.DOShakePosition(1, 1.2f, 15, 120);
+
+    }
+
     public void DoHitFx(SpriteRenderer renderer)
     {
         //StartCoroutine(ShowTimeFX());

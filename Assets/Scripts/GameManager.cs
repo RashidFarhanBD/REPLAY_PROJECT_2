@@ -31,7 +31,13 @@ public class GameManager : MonoBehaviour
     IEnumerator InitSnake()
     {
         yield return new WaitForSeconds(snakeDelayTime);
-        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x,2);
+        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, 2).OnComplete(() =>
+        {
+            juiceManager.DoCameraShakeForSnake(Camera.main);
+            juiceManager.Flash(.5f);
+
+            }
+        );
 
 
 
