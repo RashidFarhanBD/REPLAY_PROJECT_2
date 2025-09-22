@@ -154,7 +154,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Dash
-  m_Speed: 1
+  m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5936031717473584564}
@@ -167,7 +167,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 513b65c83db1c6b48818bf6ffd1f65bd, type: 2}
+  m_Motion: {fileID: 7400000, guid: 3a19c41a38ff6db43b3893844bc17133, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -365,7 +365,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 24ffca311629362479e875d6af6eaf76, type: 2}
+    m_Motion: {fileID: 7400000, guid: 64edf04c98384324ab9ff3121a4d6cad, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -387,7 +387,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: JUMPStATE
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 2406583343199493944}
@@ -400,7 +400,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7ee8b66f5c911ed4dafa3bc8e88e07b4, type: 2}
+  m_Motion: {fileID: 7400000, guid: a466222c91536884a929eb2d48d6f8d6, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
