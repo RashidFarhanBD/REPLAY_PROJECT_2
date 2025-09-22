@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip deathClip;
     [SerializeField] public AudioClip bgmCLip;
 
+    public float BGMVolume;
     private void Awake()
     {
         // Singleton pattern
@@ -27,6 +28,7 @@ public class SoundManager : MonoBehaviour
         }
 
         Instance = this;
+        BGMVolume = bgmSource.volume;
         // Keep between scenes
     }
 
@@ -50,7 +52,7 @@ public class SoundManager : MonoBehaviour
                    bgmSource.loop = loop;
                    bgmSource.Play();
                })
-               .Append(bgmSource.DOFade(1f, fadeDuration / 2f));
+               .Append(bgmSource.DOFade(BGMVolume, fadeDuration / 2f));
             bgmTween = seq;
         }
         else
@@ -90,7 +92,7 @@ public class SoundManager : MonoBehaviour
             bgmSource.UnPause();
             bgmSource.volume = 0f;
             bgmTween?.Kill();
-            bgmTween = bgmSource.DOFade(1f, fadeDuration);
+            bgmTween = bgmSource.DOFade(BGMVolume, fadeDuration);
         }
     }
     #endregion

@@ -56,6 +56,13 @@ public class JuiceManager : MonoBehaviour
         Camera.main.DOShakePosition(.6f, 1.2f, 15, 120);
 
     }
+    public void DoCameraShakeForJump(Transform player)
+    {
+
+        Camera.main.DOShakePosition(.2f, 1, 1, 15);
+
+    }
+
 
 
     public void DoCameraShakeForSnake(Camera cam)

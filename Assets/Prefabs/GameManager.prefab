@@ -183,7 +183,7 @@ MonoBehaviour:
   juiceManager: {fileID: 0}
   gameRestartTime: 2
   snakeObject: {fileID: 0}
-  snakeDelayTime: 4
+  snakeDelayTime: 3.5
 --- !u!114 &5138064479657051178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.11
   m_Pitch: 1
   Loop: 0
   Mute: 0
