@@ -2,6 +2,7 @@
 using DG.Tweening;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 public class JuiceManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +17,19 @@ public class JuiceManager : MonoBehaviour
     [SerializeField] private Image fadeImage; // full-screen white image
     [SerializeField] private float fadeDuration = 0.5f;
 
+    [Header("Jump")]
+
+    
+    [Range(0f,3f)]
+    public float shakeTime=.2f;
+    [Range(0f, 5f)]
+    public float shakeStrenght=1;
+    [Range(0, 10)]
+    public int  shakeVibration=1;
+    [Range(0f, 90f)]
+    public float  shakeRandomness=15;
+    //(.2f, 1, 1, 15
+    [SerializeField]
     private void Start()
     {
         // Start fully transparent
@@ -59,7 +73,7 @@ public class JuiceManager : MonoBehaviour
     public void DoCameraShakeForJump(Transform player)
     {
 
-        Camera.main.DOShakePosition(.2f, 1, 1, 15);
+        Camera.main.DOShakePosition(shakeTime, shakeStrenght, shakeVibration, shakeRandomness);
 
     }
 

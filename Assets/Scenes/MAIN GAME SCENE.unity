@@ -11851,6 +11851,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: shakeTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: shakeStrenght
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: shakeVibration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: shakeRandomness
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7435051398159802006, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
       propertyPath: m_Volume
       value: 0.06

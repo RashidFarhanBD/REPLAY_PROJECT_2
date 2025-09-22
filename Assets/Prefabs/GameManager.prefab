@@ -200,6 +200,10 @@ MonoBehaviour:
   flashImage: {fileID: 8285601126464091508}
   fadeImage: {fileID: 5205022038883892588}
   fadeDuration: 0.5
+  shakeTime: 0.2
+  shakeStrenght: 1
+  shakeVibration: 1
+  shakeRandomness: 15
 --- !u!114 &5254042672661428617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +224,7 @@ MonoBehaviour:
   dashClip: {fileID: 8300000, guid: c40dadf8be6f9a54aae67fbdf69b5408, type: 3}
   deathClip: {fileID: 8300000, guid: 57f0d9f204d1ccd408f7774fbae1a958, type: 3}
   bgmCLip: {fileID: 8300000, guid: 7c06a8ae365d2234297d123d974956ea, type: 3}
+  BGMVolume: 0
 --- !u!82 &7435051398159802006
 AudioSource:
   m_ObjectHideFlags: 0
@@ -233,7 +238,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.11
+  m_Volume: 0.06
   m_Pitch: 1
   Loop: 0
   Mute: 0
