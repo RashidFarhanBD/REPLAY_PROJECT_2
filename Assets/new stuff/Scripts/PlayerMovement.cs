@@ -543,13 +543,16 @@ public class PlayerMovement : MonoBehaviour
 
 		SetGravityScale(0);
 
-		//We keep the player's velocity at the dash speed during the "attack" phase (in celeste the first 0.15s)
-		while (Time.time - startTime <= Data.dashAttackTime)
+        //We keep the player's velocity at the dash speed during the "attack" phase (in celeste the first 0.15s)
+        RB.linearVelocity = dir.normalized * Data.dashSpeed;
+        while (Time.time - startTime <= Data.dashAttackTime)
 		{
-			RB.linearVelocity = dir.normalized * Data.dashSpeed;
-			//Pauses the loop until the next frame, creating something of a Update loop. 
-			//This is a cleaner implementation opposed to multiple timers and this coroutine approach is actually what is used in Celeste :D
-			yield return null;
+			float t = (Time.time - startTime) / Data.dashAttackTime;
+			RB.linearVelocityX = dir.normalized.x * Mathf.Lerp(Data.dashSpeed, Data.runMaxSpeed, t);
+			RB.linearVelocityY = 0.0f;
+            //Pauses the loop until the next frame, creating something of a Update loop. 
+            //This is a cleaner implementation opposed to multiple timers and this coroutine approach is actually what is used in Celeste :D
+            yield return new WaitForFixedUpdate();
 		}
 
 		startTime = Time.time;
