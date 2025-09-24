@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 62d09e1b60ed79744a28cba000e7ad8d
+guid: 43eaf034302b6cf47bbdf4601b7ebdca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2750090688362489906
-    second: p44_0
+      213: 1710981365271166214
+    second: fan_0
+  - first:
+      213: -6140194772216550832
+    second: fan_1
+  - first:
+      213: 4582241135641587252
+    second: fan_2
+  - first:
+      213: -1275865699971971614
+    second: fan_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 30
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: p44_0
+      name: fan_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 492
-        height: 432
+        x: 1
+        y: 100
+        width: 190
+        height: 88
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec75b0ce617b5d9d0800000000000000
-      internalID: -2750090688362489906
+      spriteID: 60dfc4e8c70aeb710800000000000000
+      internalID: 1710981365271166214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_1
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 100
+        width: 190
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05a62560365a9caa0800000000000000
+      internalID: -6140194772216550832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 4
+        width: 190
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e691df804679f30800000000000000
+      internalID: 4582241135641587252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fan_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 4
+        width: 190
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e5c01cd7e63b4ee0800000000000000
+      internalID: -1275865699971971614
       vertices: []
       indices: 
       edges: []
@@ -125,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      p44_0: -2750090688362489906
+      fan_0: 1710981365271166214
+      fan_1: -6140194772216550832
+      fan_2: 4582241135641587252
+      fan_3: -1275865699971971614
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
