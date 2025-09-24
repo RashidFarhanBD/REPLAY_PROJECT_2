@@ -2,7 +2,12 @@ using UnityEngine;
 
 public class SceneMover : MonoBehaviour
 {
-
+    [SerializeField]
+    SpeedData leftSideSpeedData;
+    [SerializeField]
+    SpeedData midSideSpeedData;
+    [SerializeField]
+    SpeedData rightSideSpeedData;
 
     public float regularScrollSpeed;
 
@@ -20,7 +25,35 @@ public class SceneMover : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        InitCamToNewValue(.5f,6);
+    }
+
+    private void OnEnable()
+    {
+        PlayerScreenPOSTracker.OnCameraZoneChanged += PlayerScreenPOSTracker_OnCameraZoneChanged;
+    }
+    private void OnDisable()
+    {
+        PlayerScreenPOSTracker.OnCameraZoneChanged -= PlayerScreenPOSTracker_OnCameraZoneChanged;
+
+    }
+
+    private void PlayerScreenPOSTracker_OnCameraZoneChanged(PlayerScreenPOSTracker.camerZone obj)
+    {
+        switch (obj)
+        {
+            case PlayerScreenPOSTracker.camerZone.LeftSide:
+                InitCamToNewValue(leftSideSpeedData.transitionTime, leftSideSpeedData.speed);
+                break;
+            case PlayerScreenPOSTracker.camerZone.Middle:
+                InitCamToNewValue(midSideSpeedData.transitionTime, midSideSpeedData.speed);
+                break;
+            case PlayerScreenPOSTracker.camerZone.Right:
+                InitCamToNewValue(rightSideSpeedData.transitionTime, rightSideSpeedData.speed);
+                break;
+            default:
+                break;
+        }
     }
 
     public void  switchCameraMove(bool condition)
@@ -36,6 +69,8 @@ public class SceneMover : MonoBehaviour
 
 
             elapsedTimeSinceLerping += Time.deltaTime;
+
+            currentScrollSpeed =  GetCurrentValueFromLerp( GetCamLerpValue());
             if(elapsedTimeSinceLerping>= maxTimeToLerp)
             {
                 elapsedTimeSinceLerping = 0;
@@ -74,8 +109,16 @@ public class SceneMover : MonoBehaviour
 
     public float GetCurrentValueFromLerp(float t )
     {
+        return Mathf.Lerp(startScrollSpeed,targetScrollSpeed,t);
 
-        return Mathf.Lerp(,targetScrollSpeed,t);
+    }
+
+    [System.Serializable]
+
+    public class SpeedData
+    {
+        public float speed;
+        public float transitionTime;
 
     }
 }

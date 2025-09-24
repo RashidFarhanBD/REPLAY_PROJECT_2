@@ -9873,7 +9873,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3b8c662d37144581d106c7ed61895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
-  scrollSpeed: 5.5
+  leftSideSpeedData:
+    speed: 4
+    transitionTime: 3
+  midSideSpeedData:
+    speed: 8
+    transitionTime: 0.5
+  rightSideSpeedData:
+    speed: 12
+    transitionTime: 1.3
+  regularScrollSpeed: 5
+  startScrollSpeed: 0
+  targetScrollSpeed: 0
+  isLerping: 0
+  elapsedTimeSinceLerping: 0
+  currentScrollSpeed: 0
+  maxTimeToLerp: 0
 --- !u!114 &5626877413397324955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9930,7 +9945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c073b9080827d4095ebf125234669e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerScreenPOSTracker
-  targetZone: 0
+  oldZone: 0
+  targetZone: 1
+  LeftZoneLimitChecker: 0.3
+  MiddleZoneLimitChecker: 0.75
   target: {fileID: 0}
   cam: {fileID: 6048926805698494430}
 --- !u!1 &4390813592605789768

@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using System;
 public class PlayerScreenPOSTracker : MonoBehaviour
 {
-    public event Action<camerZone> OnCameraZoneChanged;
+    public static event Action<camerZone> OnCameraZoneChanged;
     [SerializeField]
     camerZone oldZone;
     [SerializeField]
