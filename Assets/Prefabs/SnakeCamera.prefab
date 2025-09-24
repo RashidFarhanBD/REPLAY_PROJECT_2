@@ -9775,6 +9775,7 @@ GameObject:
   - component: {fileID: 1703654330454645177}
   - component: {fileID: 1272306560865265719}
   - component: {fileID: 5626877413397324955}
+  - component: {fileID: 6634822970280460700}
   m_Layer: 0
   m_Name: SnakeCamera
   m_TagString: MainCamera
@@ -9917,6 +9918,21 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &6634822970280460700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330966062722374709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17c073b9080827d4095ebf125234669e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerScreenPOSTracker
+  targetZone: 0
+  target: {fileID: 0}
+  cam: {fileID: 6048926805698494430}
 --- !u!1 &4390813592605789768
 GameObject:
   m_ObjectHideFlags: 0

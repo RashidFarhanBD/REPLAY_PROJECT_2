@@ -72,7 +72,7 @@ public class JuiceManager : MonoBehaviour
     }
     public void DoCameraShakeForJump(Transform player)
     {
-
+        if (shakeTime <= 0) return;
         Camera.main.DOShakePosition(shakeTime, shakeStrenght, shakeVibration, shakeRandomness);
 
     }
