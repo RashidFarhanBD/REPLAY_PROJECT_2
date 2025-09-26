@@ -472,6 +472,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Turn()
 	{
+		Debug.Log("TURN");
 		//stores scale and flips the player along the x axis, 
 		Vector3 scale = transform.localScale; 
 		scale.x *= -1;
