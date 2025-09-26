@@ -141423,6 +141423,22 @@ PrefabInstance:
       propertyPath: scrollSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1272306560865265719, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
+      propertyPath: midSideSpeedData.speed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272306560865265719, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
+      propertyPath: leftSideSpeedData.speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272306560865265719, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
+      propertyPath: rightSideSpeedData.speed
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1272306560865265719, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
+      propertyPath: leftSideSpeedData.transitionTime
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1330966062722374709, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
       propertyPath: m_Name
       value: SnakeCamera

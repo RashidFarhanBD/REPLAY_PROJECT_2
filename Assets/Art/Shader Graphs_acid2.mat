@@ -24,11 +24,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 506c7e56acb2fe94d9ca1fffce154020, type: 3}
+        m_Texture: {fileID: 2800000, guid: f6e608d8076d4d84192688a20bce0006, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask:
-        m_Texture: {fileID: 2800000, guid: 506c7e56acb2fe94d9ca1fffce154020, type: 3}
+        m_Texture: {fileID: 2800000, guid: f6e608d8076d4d84192688a20bce0006, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_3ac6b2f7959743ecb0ad9143a659729a_Out_0_Texture2D:
@@ -53,14 +57,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _E: 3.72
-    - _S1: -0.04
+    - _E: 150
+    - _S1: 0
     - _S2: 0
-    - _Size: 5
+    - _Size: 1
+    - _WaveCount: 1.5
+    - _WaveFlowDirection: 1
+    - _WaveS: 0.8
+    - _WaveSize: 0.04
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _Color2: {r: 1, g: 1, b: 1, a: 1}
-    - _Ecolor: {r: 0.5372549, g: 0.11372548, b: 0.12567635, a: 0.25490198}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.2}
+    - _Color2: {r: 1, g: 1, b: 1, a: 0.2}
+    - _Ecolor: {r: 0.3137255, g: 0.3803922, b: 0.15686275, a: 1}
     - _Speed: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
