@@ -17,11 +17,14 @@ public class SceneMover : MonoBehaviour
 
     public bool isLerping=false;
     public float elapsedTimeSinceLerping;
-    public float currentScrollSpeed;
+    public float currentScrollSpeed =2;
     public float maxTimeToLerp;
     
     //   public float 
     bool scrollOn =true;
+    private bool overrideCam;
+public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,15 +34,36 @@ public class SceneMover : MonoBehaviour
     private void OnEnable()
     {
         PlayerScreenPOSTracker.OnCameraZoneChanged += PlayerScreenPOSTracker_OnCameraZoneChanged;
+        StaticCameraZones.OnCollisionEnter += StaticCameraZones_OnCollisionEnter;
+        StaticCameraZones.OnCollistionExit += StaticCameraZones_OnCollistionExit;
     }
+
+    private void StaticCameraZones_OnCollistionExit(StaticCameraZones obj)
+    {
+        OverrideCam = false;
+        // this is a bit sussy
+        InitCamToNewValue(.5f, midSideSpeedData.speed);
+
+    }
+
+    private void StaticCameraZones_OnCollisionEnter(StaticCameraZones obj)
+    {
+        OverrideCam = true;
+        InitCamToNewValue(obj.transitionTime, obj.overrideSpeed);
+        // InitCamToNewValue(obj.transitionTime, obj.overrideSpeed);
+    }
+
     private void OnDisable()
     {
         PlayerScreenPOSTracker.OnCameraZoneChanged -= PlayerScreenPOSTracker_OnCameraZoneChanged;
+        StaticCameraZones.OnCollisionEnter -= StaticCameraZones_OnCollisionEnter;
+        StaticCameraZones.OnCollistionExit -= StaticCameraZones_OnCollistionExit;
 
     }
 
     private void PlayerScreenPOSTracker_OnCameraZoneChanged(PlayerScreenPOSTracker.camerZone obj)
     {
+        if (OverrideCam) return;
         switch (obj)
         {
             case PlayerScreenPOSTracker.camerZone.LeftSide:
@@ -64,19 +88,26 @@ public class SceneMover : MonoBehaviour
 
     private void Update()
     {
+      
         if (isLerping)
         {
 
 
             elapsedTimeSinceLerping += Time.deltaTime;
+            var t = Mathf.Clamp01(GetCamLerpValue());
+            currentScrollSpeed = GetCurrentValueFromLerp(t);
+            //if (elapsedTimeSinceLerping >= maxTimeToLerp)
+            //{
+            //    elapsedTimeSinceLerping = 0;
+            //    isLerping = false;
 
-            currentScrollSpeed =  GetCurrentValueFromLerp( GetCamLerpValue());
-            if(elapsedTimeSinceLerping>= maxTimeToLerp)
+
+
+
+            if (t >= 1f)
             {
-                elapsedTimeSinceLerping = 0;
-                isLerping = false;  
-
-
+                isLerping = false;
+                elapsedTimeSinceLerping = 0f;
             }
 
         }
