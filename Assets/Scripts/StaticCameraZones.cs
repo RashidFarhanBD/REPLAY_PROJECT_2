@@ -17,6 +17,12 @@ public class StaticCameraZones : MonoBehaviour
     public float overrideSpeed=1;
     [Range(0, 3)]
     public float transitionTime=2;
+
+    [Space(3)]
+    [Header("Olzhas stuff")]
+    public bool boltCamera;
+    public float boltCamSpeed;
+    public float boltTransitionTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

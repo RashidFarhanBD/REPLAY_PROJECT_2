@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5abc4324e0eb724fbd9acafa54eb4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaticCameraZones
-  overrideSpeed: 3
+  overrideSpeed: 5.4
   transitionTime: 3

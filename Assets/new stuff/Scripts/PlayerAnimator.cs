@@ -17,8 +17,10 @@ public class PlayerAnimator : MonoBehaviour
     [Header("Particle FX")]
     [SerializeField] private GameObject jumpFX;
     [SerializeField] private GameObject landFX;
+    [SerializeField] private GameObject _doubleJumpFX;
     private ParticleSystem _jumpParticle;
     private ParticleSystem _landParticle;
+    private ParticleSystem _doubleJumpParticle;
 
     public bool startedJumping {  private get; set; }
     public bool justLanded { private get; set; }
@@ -72,14 +74,27 @@ public class PlayerAnimator : MonoBehaviour
         if (startedJumping)
         {
             anim.SetTrigger("Jump");
-            GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
-            Destroy(obj, 1);
+           if(! mov.IsWallJumping && mov.JumpsLeft == 0)
+            {
+                //djump
+                GameObject obj = Instantiate(_doubleJumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
+                Destroy(obj, 1);
+            }
+
+            else
+            {
+                GameObject obj = Instantiate(jumpFX, transform.position - (Vector3.up * transform.localScale.y / 2), Quaternion.Euler(-90, 0, 0));
+                Destroy(obj, 1);
+
+            }
+              
             startedJumping = false;
             return;
         }
 
         if (justLanded)
         {
+            Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
             GameManager.instance.SHakeFromLand();
             anim.SetTrigger("Land");
             GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));

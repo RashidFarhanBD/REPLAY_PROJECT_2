@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 	public DashEffect dashEffect;
     #region Double JUmp stuff
     private int _jumpsLeft;
+	
     [SerializeField] private int maxJumps = 2; // 2 = single + double jump
 
     #endregion
@@ -64,11 +65,12 @@ public class PlayerMovement : MonoBehaviour
 
 	public float LastPressedJumpTime { get; private set; }
 	public float LastPressedDashTime { get; private set; }
-	#endregion
+    public int JumpsLeft { get => _jumpsLeft; set => _jumpsLeft = value; }
+    #endregion
 
-	#region CHECK PARAMETERS
-	//Set all of these up in the inspector
-	[Header("Checks")] 
+    #region CHECK PARAMETERS
+    //Set all of these up in the inspector
+    [Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
 	//Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
 	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
@@ -299,8 +301,10 @@ public class PlayerMovement : MonoBehaviour
 
 		#region SLIDE CHECKS
 		if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
+		{
 			IsSliding = true;
-		 
+			JumpsLeft = maxJumps;
+		}
 		else
 			IsSliding = false;
 		#endregion
@@ -475,7 +479,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Turn()
 	{
-		Debug.Log("TURN");
+		//Debug.Log("TURN");
 		//stores scale and flips the player along the x axis, 
 		Vector3 scale = transform.localScale; 
 		scale.x *= -1;
