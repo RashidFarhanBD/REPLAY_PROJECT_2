@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void DoMildShakeCam()
+    {
+        juiceManager.DoMildCamShake();
+    }
+
     public void SHakeFromLand()
     {
 
