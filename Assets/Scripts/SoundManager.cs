@@ -19,6 +19,9 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public AudioClip pickUPclip;
 
     public float BGMVolume;
+    private AudioClip clip1;
+    private AudioClip clip2;
+
     private void Awake()
     {
         // Singleton pattern
@@ -62,7 +65,7 @@ public class SoundManager : MonoBehaviour
             bgmSource.loop = loop;
             bgmSource.volume = 0f;
             bgmSource.Play();
-            bgmTween = bgmSource.DOFade(1f, fadeDuration);
+            bgmTween = bgmSource.DOFade(BGMVolume, fadeDuration);
         }
     }
 
@@ -126,6 +129,12 @@ public class SoundManager : MonoBehaviour
     {
 
         PlaySFX(pickUPclip);
+    }
+
+    public void PlayMonsterSound()
+    {
+
+        AudioClip chosenClip = (Random.value > 0.5f) ? clip1 : clip2;
     }
 
     private void PlaySFX(AudioClip clip)
