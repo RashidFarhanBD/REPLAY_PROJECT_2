@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
 	public PlayerData Data;
 	JumpSquashStretch jmpfx;
 	public DashEffect dashEffect;
+	public AfterImageEffect afterImageEffect;
     #region Double JUmp stuff
     private int _jumpsLeft;
 	
@@ -161,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
 			OnJumpUpInput();
 		}
 
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.K))
+		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.K))
 		{
 			OnDashInput();
 		}
@@ -549,7 +550,8 @@ public class PlayerMovement : MonoBehaviour
 		LastOnGroundTime = 0;
 		LastPressedDashTime = 0;
 		AnimHandler.Dash = true;
-		dashEffect.Dash();	
+		dashEffect.Dash();
+		afterImageEffect.StartTrail();
         float startTime = Time.time;
 
 		_dashesLeft--;
@@ -585,10 +587,12 @@ public class PlayerMovement : MonoBehaviour
 
 		//Dash over
 		IsDashing = false;
-	}
+        afterImageEffect.StopTrail();
 
-	//Short period before the player is able to dash again
-	private IEnumerator RefillDash(int amount)
+    }
+
+    //Short period before the player is able to dash again
+    private IEnumerator RefillDash(int amount)
 	{
 		//SHoet cooldown, so we can't constantly dash along the ground, again this is the implementation in Celeste, feel free to change it up
 		_dashRefilling = true;

@@ -4859,6 +4859,7 @@ GameObject:
   - component: {fileID: 5495017351784132957}
   - component: {fileID: 532001003243119616}
   - component: {fileID: 440207001054232132}
+  - component: {fileID: 5260635052542377649}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -4901,6 +4902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: e6de6150ab38ff74b9ee0fa32028adf7, type: 2}
   dashEffect: {fileID: 5495017351784132957}
+  afterImageEffect: {fileID: 5260635052542377649}
   maxJumps: 2
   _groundCheckPoint: {fileID: 1379914321612021644}
   _groundCheckSize: {x: 0.49, y: 0.03}
@@ -5100,6 +5102,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DustTrail
   particles: {fileID: 8348696422515598575}
+--- !u!114 &5260635052542377649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654590625011772493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b2c2dfb8fffe8b4e976aa0d61f1516e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AfterImageEffect
+  ghostPrefab: {fileID: 5082543724118479234, guid: 199de475adef3794188316a33a39d5a0, type: 3}
+  spawnInterval: 0.1
+  fadeDuration: 0.3
+  ghostColor: {r: 1, g: 1, b: 1, a: 1}
+  spriteRenderer: {fileID: 5420673483063859145}
 --- !u!1 &882237126346088807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5127,7 +5146,7 @@ Transform:
   m_GameObject: {fileID: 882237126346088807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5181,7 +5200,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 40
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7160429211405778527, guid: f6e608d8076d4d84192688a20bce0006, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5402,7 +5421,7 @@ Transform:
   m_GameObject: {fileID: 1213400612586991307}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.084, y: -0.251, z: -1}
+  m_LocalPosition: {x: 0, y: -0.251, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

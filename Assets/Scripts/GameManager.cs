@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public float gameRestartTime = 2f;
 
     [Header("Snake stuff")]
-    Vector2 snakeStartingPos = new Vector3 (-25,0,20);
+    Vector2 snakeStartingPos = new Vector3 (-20,0,20);
    
     [SerializeField]Vector3 snakeOffPos = new Vector3 (-35,0,17.5f);
    
