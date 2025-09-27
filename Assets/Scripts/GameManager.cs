@@ -1,16 +1,12 @@
 using DG.Tweening;
-using DG.Tweening.Core.Easing;
 using System;
 using System.Collections;
-using System.Reflection;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
-
+    private const float snakeDuration = 2.5f;
     public static GameManager instance;
     public PlayerMovement playerMovement;
     public SceneMover sceneMover;   
@@ -28,21 +24,30 @@ public class GameManager : MonoBehaviour
    
     public GameObject snakeObject;
     public float snakeDelayTime;
+    private Sequence snakeSeq;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     IEnumerator InitSnake()
     {
+        snakeSeq?.Kill();
+        snakeSeq = DOTween.Sequence();
+
         SoundManager.Instance.PlayBGM(SoundManager.Instance.bgmCLip,.2f,true);
         yield return new WaitForSeconds(snakeDelayTime);
         SoundManager.Instance.PauseBGM();
-        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, 2.5f).OnComplete(() =>
-        {
-            juiceManager.DoCameraShakeForSnake(Camera.main);
-            juiceManager.Flash(.25f);
-            SoundManager.Instance.ResumeBGM();
+        snakeSeq.Append(snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration)).
+            Append(snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration))
+            .AppendCallback(() => { juiceManager.Flash(.25f); SoundManager.Instance.ResumeBGM(); });
 
-        }
-        );
+
+        //snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration).OnComplete(() =>
+        //{
+        //   // juiceManager.DoCameraShakeForSnake(Camera.main);
+        //    juiceManager.Flash(.25f);
+        //    SoundManager.Instance.ResumeBGM();
+
+        //}
+        //);
 
 
 

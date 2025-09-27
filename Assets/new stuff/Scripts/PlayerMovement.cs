@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
 	//Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
-	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
+	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.1f);
 	[Space(5)]
 	[SerializeField] private Transform _frontWallCheckPoint;
 	[SerializeField] private Transform _backWallCheckPoint;
@@ -178,15 +178,18 @@ public class PlayerMovement : MonoBehaviour
 				if(LastOnGroundTime < -0.1f)
                 {
                     Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
+
+                    var vel = Mathf.Abs(RB.linearVelocityY);
+                    if (vel >= 8)
+                    {
+                        //Debug.Log("shake??");
+                        var i = Mathf.Clamp(vel * .5f, .2f, 1.5f);
+                      //  GameManager.instance.ShakeFromLand2(.2f, i);
+
+                    }
                     // Debug.Log(" ground check okay??");
                     AnimHandler.justLanded = true;
-					var vel =   Mathf.Abs(  RB.linearVelocityY);
-					if(vel>=20)
-					{
-                        var i = Mathf.Clamp(vel*0.005f,2f,1f);
-                        GameManager.instance.ShakeFromLand2(.2f,i);
-
-                    }	
+						
 					
                 }
 

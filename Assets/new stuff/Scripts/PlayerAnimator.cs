@@ -94,7 +94,7 @@ public class PlayerAnimator : MonoBehaviour
 
         if (justLanded)
         {
-            Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
+           
             GameManager.instance.SHakeFromLand();
             anim.SetTrigger("Land");
             GameObject obj = Instantiate(landFX, transform.position - (Vector3.up * transform.localScale.y / 1.5f), Quaternion.Euler(-90, 0, 0));

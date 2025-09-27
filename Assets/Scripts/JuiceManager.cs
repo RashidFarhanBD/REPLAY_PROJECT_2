@@ -36,6 +36,8 @@ public class JuiceManager : MonoBehaviour
     {
         // Start fully transparent
         fadeImage.color = new Color(1, 1, 1, 0);
+        if (level = null) level = GameObject.Find("Level");
+
     }
 
     public void FadeToWhite()
@@ -75,7 +77,7 @@ public class JuiceManager : MonoBehaviour
     public void DoCameraShakeForJump(Transform player)
     {
         if (shakeTime <= 0) return;
-        Camera.main.DOShakePosition(shakeTime, shakeStrenght, shakeVibration, shakeRandomness);
+        level.transform.DOShakePosition(shakeTime, shakeStrenght, shakeVibration, shakeRandomness);
 
     }
 
@@ -120,7 +122,7 @@ public class JuiceManager : MonoBehaviour
 
     internal void DoCameraShakeForJump(float t, float i)
     {
-        land.DOShakePosition((float)t, new Vector3(0,1*i,0));
+        land.DOShakePosition((float)t, i,5,0);
         
     }
 }
