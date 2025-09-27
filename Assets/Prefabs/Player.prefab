@@ -4925,10 +4925,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 186c84512c8bd864dbf262a2c673b1a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathEffect
-  moveDuration: 1
-  scaleMultiplier: 9.01
-  rotateSpeed: 720
-  fadeDuration: 0.5
+  moveDuration: 1.5
+  scaleMultiplier: 10
+  fadeDuration: 1
 --- !u!114 &8209280069874063342
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -164,6 +164,7 @@ public class SoundManager : MonoBehaviour
 
         // play the sound
         snakeSOundsrc.PlayOneShot(chosenClip);
+        GameManager.instance.DoMildShakeCam();
       
     }
 
