@@ -7,7 +7,7 @@ public class PlayerScreenPOSTracker : MonoBehaviour
     [SerializeField]
     camerZone oldZone;
     [SerializeField]
-    camerZone targetZone;
+   public camerZone targetZone;
     
 
     [Header("CameraZone")]

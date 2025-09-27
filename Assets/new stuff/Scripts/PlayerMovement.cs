@@ -177,7 +177,7 @@ public class PlayerMovement : MonoBehaviour
 				
 				if(LastOnGroundTime < -0.1f)
                 {
-                    Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
+                  //  Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
 
                     var vel = Mathf.Abs(RB.linearVelocityY);
                     if (vel >= 20)
