@@ -9889,6 +9889,7 @@ MonoBehaviour:
   elapsedTimeSinceLerping: 0
   currentScrollSpeed: 0
   maxTimeToLerp: 0
+  camZone: {fileID: 0}
 --- !u!114 &5626877413397324955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10361,7 +10362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2265949776416988166, guid: 6b3ab6fb070af6a49b9efc927c707f97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35
+      value: -33.48
       objectReference: {fileID: 0}
     - target: {fileID: 2265949776416988166, guid: 6b3ab6fb070af6a49b9efc927c707f97, type: 3}
       propertyPath: m_LocalPosition.y

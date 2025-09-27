@@ -12,7 +12,7 @@ public class JuiceManager : MonoBehaviour
     [SerializeField] private Image flashImage;
 
 
-
+    [SerializeField] GameObject level;
 
     [SerializeField] private Image fadeImage; // full-screen white image
     [SerializeField] private float fadeDuration = 0.5f;

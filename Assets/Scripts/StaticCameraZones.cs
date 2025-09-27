@@ -1,10 +1,12 @@
 using System;
 using System.Runtime.CompilerServices;
+using Unity.Collections;
 using UnityEngine;
 
 
 
 [RequireComponent(typeof (BoxCollider2D))]
+[System.Serializable]
 public class StaticCameraZones : MonoBehaviour
 {
 
@@ -20,9 +22,20 @@ public class StaticCameraZones : MonoBehaviour
 
     [Space(3)]
     [Header("Olzhas stuff")]
+
+    [Tooltip("turn thiss on to speed cam for certain time")]
     public bool boltCamera;
-    public float boltCamSpeed;
-    public float boltTransitionTime;
+     bool isBolting;
+    public float boltCamSpeed=10;
+    public float boltTransitionTime=.5f;
+    public float boltWaitTime= 1;
+
+    [HideInInspector]
+    public float waitTimer=0;
+
+
+    public bool IsBolting { get => isBolting; set => isBolting = value; }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +49,12 @@ public class StaticCameraZones : MonoBehaviour
     {
         
     }
+    public void boltTranistionFinished()
+    {
+        isBolting = false;
+        waitTimer = boltWaitTime;
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -45,6 +64,7 @@ public class StaticCameraZones : MonoBehaviour
         {
 
             isDirty = true;
+            IsBolting = boltCamera;
             OnCollisionEnter?.Invoke(this);
 
         }
