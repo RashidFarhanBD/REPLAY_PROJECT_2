@@ -4857,6 +4857,7 @@ GameObject:
   - component: {fileID: 4441231556916090439}
   - component: {fileID: 8960712582880357728}
   - component: {fileID: 5495017351784132957}
+  - component: {fileID: 532001003243119616}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -5064,6 +5065,26 @@ MonoBehaviour:
   dashTrail2: {fileID: 1079984175833689888}
   dashTrail3: {fileID: 0}
   dashtime: 0
+--- !u!114 &532001003243119616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654590625011772493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94616f0681efdda4cb6e6debbdb0338a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JumpSquashStretch
+  playerVisual: {fileID: 7184928353740469050}
+  squashX: 1.25
+  squashY: 0.56
+  stretchX: 0.66
+  stretchY: 1.25
+  squashDuration: 0.15
+  stretchDuration: 0.15
+  recoverDuration: 0.1
 --- !u!1 &882237126346088807
 GameObject:
   m_ObjectHideFlags: 0
