@@ -123318,11 +123318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.1
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.69
+      value: -8.6
       objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.z
@@ -133241,7 +133241,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1272306560865265719, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1330966062722374709, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
       propertyPath: m_Name
@@ -133253,11 +133253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5474464114854593767, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.20000076
       objectReference: {fileID: 0}
     - target: {fileID: 5474464114854593767, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1500001
       objectReference: {fileID: 0}
     - target: {fileID: 5474464114854593767, guid: e92c599c209f13243a5f837bbab0a28a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -133315,7 +133315,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4376777271093768755, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 72.5
+      value: 136.6
       objectReference: {fileID: 0}
     - target: {fileID: 4376777271093768755, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -133356,6 +133356,34 @@ PrefabInstance:
     - target: {fileID: 4391082672489190500, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
       propertyPath: m_Name
       value: CamSloZone
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: waitTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: boltCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: boltCamSpeed
+      value: 10.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: boltWaitTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: overrideSpeed
+      value: 1.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: transitionTime
+      value: 0.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
+      propertyPath: boltTransitionTime
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

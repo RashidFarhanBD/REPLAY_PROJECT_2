@@ -14,9 +14,11 @@ public class PlayerMovement : MonoBehaviour
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
+	JumpSquashStretch jmpfx;
 	public DashEffect dashEffect;
     #region Double JUmp stuff
     private int _jumpsLeft;
+	
     [SerializeField] private int maxJumps = 2; // 2 = single + double jump
 
     #endregion
@@ -63,11 +65,12 @@ public class PlayerMovement : MonoBehaviour
 
 	public float LastPressedJumpTime { get; private set; }
 	public float LastPressedDashTime { get; private set; }
-	#endregion
+    public int JumpsLeft { get => _jumpsLeft; set => _jumpsLeft = value; }
+    #endregion
 
-	#region CHECK PARAMETERS
-	//Set all of these up in the inspector
-	[Header("Checks")] 
+    #region CHECK PARAMETERS
+    //Set all of these up in the inspector
+    [Header("Checks")] 
 	[SerializeField] private Transform _groundCheckPoint;
 	//Size of groundCheck depends on the size of your character generally you want them slightly small than width (for ground) and height (for the wall check)
 	[SerializeField] private Vector2 _groundCheckSize = new Vector2(0.49f, 0.03f);
@@ -118,6 +121,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		RB = GetComponent<Rigidbody2D>();
 		AnimHandler = GetComponent<PlayerAnimator>();
+		jmpfx = GetComponent<JumpSquashStretch>();
 	}
 
 	private void Start()
@@ -297,8 +301,10 @@ public class PlayerMovement : MonoBehaviour
 
 		#region SLIDE CHECKS
 		if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
+		{
 			IsSliding = true;
-		 
+			JumpsLeft = maxJumps;
+		}
 		else
 			IsSliding = false;
 		#endregion
@@ -473,7 +479,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Turn()
 	{
-		Debug.Log("TURN");
+		//Debug.Log("TURN");
 		//stores scale and flips the player along the x axis, 
 		Vector3 scale = transform.localScale; 
 		scale.x *= -1;
@@ -497,8 +503,9 @@ public class PlayerMovement : MonoBehaviour
 		float force = Data.jumpForce;
 		if (RB.linearVelocity.y < 0)
 			force -= RB.linearVelocity.y;
+		jmpfx.PlayJumpEffect();
 
-		RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+        RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 		#endregion
 	}
 
@@ -520,9 +527,14 @@ public class PlayerMovement : MonoBehaviour
 		if (RB.linearVelocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
 			force.y -= RB.linearVelocity.y;
 
-		//Unlike in the run we want to use the Impulse mode.
-		//The default mode will apply are force instantly ignoring masss
-		RB.AddForce(force, ForceMode2D.Impulse);
+        //Unlike in the run we want to use the Impulse mode.
+        //The default mode will apply are force instantly ignoring masss
+
+        if ((dir > 0 && !IsFacingRight) || (dir < 0 && IsFacingRight))
+        {
+            CheckDirectionToFace(dir > 0);
+        }
+        RB.AddForce(force, ForceMode2D.Impulse);
 		#endregion
 	}
 	#endregion
@@ -621,14 +633,39 @@ public class PlayerMovement : MonoBehaviour
     }
 
 	private bool CanWallJump()
-    { if (RB.linearVelocityY >= 0) return false;
+    {
+        // Don’t allow wall jump if moving upwards too much
+        if (RB.linearVelocity.y > 0.5f) return false;
 
-	else if (IsSliding) return true;
+        // Must be sliding on a wall
+        if (!IsSliding) return false;
 
-		return false;
-		//return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
-		//	 (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
-	}
+        // Must press away from the wall
+        if (LastOnWallRightTime > 0 && _moveInput.x < 0) return true; // On right wall, press left
+        if (LastOnWallLeftTime > 0 && _moveInput.x > 0) return true;  // On left wall, press right
+
+        return false;
+
+
+
+
+
+
+        //	if (RB.linearVelocityY >= 1) return false;
+
+        //else if (IsSliding) return true;
+
+        //	return false;
+
+
+
+
+
+
+
+        //return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
+        //	 (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
+    }
 
 	private bool CanJumpCut()
     {

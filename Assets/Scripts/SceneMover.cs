@@ -1,3 +1,4 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SceneMover : MonoBehaviour
@@ -23,6 +24,8 @@ public class SceneMover : MonoBehaviour
     //   public float 
     bool scrollOn =true;
     private bool overrideCam;
+    [SerializeField]
+    StaticCameraZones camZone;
 public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +43,7 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
 
     private void StaticCameraZones_OnCollistionExit(StaticCameraZones obj)
     {
+        camZone = null;
         OverrideCam = false;
         // this is a bit sussy
         InitCamToNewValue(.5f, midSideSpeedData.speed);
@@ -48,8 +52,19 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
 
     private void StaticCameraZones_OnCollisionEnter(StaticCameraZones obj)
     {
-        OverrideCam = true;
-        InitCamToNewValue(obj.transitionTime, obj.overrideSpeed);
+        camZone = obj;
+        overrideCam = true;
+        if (obj.IsBolting)
+        {
+            Debug.Log("we are bolting");
+            InitCamToNewValue(obj.boltTransitionTime, obj.boltCamSpeed);
+
+        }
+        else
+        {
+            InitCamToNewValue(obj.transitionTime, obj.overrideSpeed);
+        }
+           
         // InitCamToNewValue(obj.transitionTime, obj.overrideSpeed);
     }
 
@@ -108,8 +123,31 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
             {
                 isLerping = false;
                 elapsedTimeSinceLerping = 0f;
+                if (camZone != null && camZone.IsBolting ==true)
+                {
+                    camZone.boltTranistionFinished();
+                }
             }
 
+        }
+        else
+        {
+            if (camZone != null && camZone.boltCamera && !camZone.IsBolting)
+            {
+
+                if (camZone.waitTimer <= 0f)
+                {
+
+                    InitCamToNewValue(camZone.transitionTime, camZone.overrideSpeed);
+
+                }
+                else
+                {
+                    camZone.waitTimer -= Time.deltaTime;
+                }
+
+
+            }
         }
     }
 
