@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         {
             // juiceManager.DoCameraShakeForSnake(Camera.main);
             juiceManager.Flash(.3f);
-            SoundManager.Instance.ResumeBGM();
+           // SoundManager.Instance.ResumeBGM();
 
         }
         );
