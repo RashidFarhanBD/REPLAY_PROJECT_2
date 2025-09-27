@@ -11804,6 +11804,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 53907405408016338, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: fx
+      value: 
+      objectReference: {fileID: 1942725147}
+    - target: {fileID: 53907405408016338, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
       propertyPath: snakeObject
       value: 
       objectReference: {fileID: 3394694764968561139}
@@ -122047,6 +122051,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: rotateSpeed
+      value: 1084.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: moveDuration
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: scaleMultiplier
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.88
@@ -122092,6 +122112,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+--- !u!114 &1942725147 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+  m_PrefabInstance: {fileID: 1942725146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186c84512c8bd864dbf262a2c673b1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathEffect
 --- !u!1001 &1971149204
 PrefabInstance:
   m_ObjectHideFlags: 0

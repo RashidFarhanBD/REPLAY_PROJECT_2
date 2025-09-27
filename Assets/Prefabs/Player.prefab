@@ -4851,6 +4851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3161685619185296429}
   - component: {fileID: 3829291904542251300}
+  - component: {fileID: 1600236726031460126}
   - component: {fileID: 8209280069874063342}
   - component: {fileID: 1920082975575184534}
   - component: {fileID: 279291904928632554}
@@ -4912,6 +4913,22 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &1600236726031460126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654590625011772493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186c84512c8bd864dbf262a2c673b1a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerDeathEffect
+  moveDuration: 1
+  scaleMultiplier: 9.01
+  rotateSpeed: 720
+  fadeDuration: 0.5
 --- !u!114 &8209280069874063342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5102,7 +5119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DustTrail
   particles: {fileID: 8348696422515598575}
-  mov: {fileID: 0}
+  mov: {fileID: 3829291904542251300}
 --- !u!114 &5260635052542377649
 MonoBehaviour:
   m_ObjectHideFlags: 0
