@@ -42,6 +42,7 @@ public class PlayerScreenPOSTracker : MonoBehaviour
     {
         if(cam==null)
         cam = Camera.main;
+        if (target == null) target = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
