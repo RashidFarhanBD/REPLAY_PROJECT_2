@@ -26,6 +26,8 @@ public class SceneMover : MonoBehaviour
     private bool overrideCam;
     [SerializeField]
     StaticCameraZones camZone;
+    [SerializeField]
+    PlayerScreenPOSTracker pos;
 public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,7 +48,7 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
         camZone = null;
         OverrideCam = false;
         // this is a bit sussy
-        InitCamToNewValue(.5f, midSideSpeedData.speed);
+        PlayerScreenPOSTracker_OnCameraZoneChanged(pos.targetZone);
 
     }
 
