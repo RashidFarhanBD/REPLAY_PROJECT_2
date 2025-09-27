@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &554723075487449331
 Transform:
@@ -147,7 +147,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2018347305237482760
 Transform:
@@ -182,6 +182,7 @@ MonoBehaviour:
   sceneMover: {fileID: 0}
   juiceManager: {fileID: 0}
   gameRestartTime: 2
+  snakeOffPos: {x: -35, y: 0, z: 17.5}
   snakeObject: {fileID: 0}
   snakeDelayTime: 3.5
 --- !u!114 &5138064479657051178
@@ -198,12 +199,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JuiceManager
   hitfxMat: {fileID: -876546973899608171, guid: a3d800b099a06e0478fb790c5e79057a, type: 3}
   flashImage: {fileID: 8285601126464091508}
+  level: {fileID: 0}
   fadeImage: {fileID: 5205022038883892588}
   fadeDuration: 0.5
-  shakeTime: 0.2
-  shakeStrenght: 1
-  shakeVibration: 1
-  shakeRandomness: 15
+  shakeTime: 0
+  shakeStrenght: 0
+  shakeVibration: 0
+  shakeRandomness: 0
 --- !u!114 &5254042672661428617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +226,8 @@ MonoBehaviour:
   dashClip: {fileID: 8300000, guid: c40dadf8be6f9a54aae67fbdf69b5408, type: 3}
   deathClip: {fileID: 8300000, guid: 57f0d9f204d1ccd408f7774fbae1a958, type: 3}
   bgmCLip: {fileID: 8300000, guid: 7c06a8ae365d2234297d123d974956ea, type: 3}
-  BGMVolume: 0
+  pickUPclip: {fileID: 8300000, guid: 77d1bb3611656b64e951fb6a45c41dae, type: 3}
+  BGMVolume: 0.5
 --- !u!82 &7435051398159802006
 AudioSource:
   m_ObjectHideFlags: 0
@@ -238,7 +241,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.06
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -339,7 +342,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &8240586710640425059
 RectTransform:
@@ -441,7 +444,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6173937324354142577
 RectTransform:
@@ -516,7 +519,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!224 &6340869735810672547
 RectTransform:

@@ -10,6 +10,7 @@ public class FireflyPickup : MonoBehaviour, Ipickupable
     public void PickUp()
     {
         OnPickUpFireFly?.Invoke();
+        SoundManager.Instance.PlayPickup();
         Destroy(gameObject);
     }
 

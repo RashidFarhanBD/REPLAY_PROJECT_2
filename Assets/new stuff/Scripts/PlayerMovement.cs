@@ -180,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
                     Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
 
                     var vel = Mathf.Abs(RB.linearVelocityY);
-                    if (vel >= 8)
+                    if (vel >= 20)
                     {
                         //Debug.Log("shake??");
                         var i = Mathf.Clamp(vel * .5f, .2f, 1.5f);

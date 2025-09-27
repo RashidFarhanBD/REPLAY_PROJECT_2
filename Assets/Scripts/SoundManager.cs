@@ -16,6 +16,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip dashClip;
     [SerializeField] private AudioClip deathClip;
     [SerializeField] public AudioClip bgmCLip;
+    [SerializeField] public AudioClip pickUPclip;
 
     public float BGMVolume;
     private void Awake()
@@ -120,6 +121,11 @@ public class SoundManager : MonoBehaviour
     public void PlayDeath()
     {
         PlaySFX(deathClip);
+    }
+    public void PlayPickup()
+    {
+
+        PlaySFX(pickUPclip);
     }
 
     private void PlaySFX(AudioClip clip)

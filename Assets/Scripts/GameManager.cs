@@ -34,20 +34,18 @@ public class GameManager : MonoBehaviour
 
         SoundManager.Instance.PlayBGM(SoundManager.Instance.bgmCLip,.2f,true);
         yield return new WaitForSeconds(snakeDelayTime);
-        SoundManager.Instance.PauseBGM();
-        snakeSeq.Append(snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration)).
-            Append(snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration))
-            .AppendCallback(() => { juiceManager.Flash(.25f); SoundManager.Instance.ResumeBGM(); });
+       // SoundManager.Instance.PauseBGM();
 
 
-        //snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration).OnComplete(() =>
-        //{
-        //   // juiceManager.DoCameraShakeForSnake(Camera.main);
-        //    juiceManager.Flash(.25f);
-        //    SoundManager.Instance.ResumeBGM();
 
-        //}
-        //);
+        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration).OnComplete(() =>
+        {
+             juiceManager.DoCameraShakeForSnake(Camera.main);
+            juiceManager.Flash(.3f);
+            SoundManager.Instance.ResumeBGM();
+
+        }
+        );
 
 
 
@@ -68,7 +66,8 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
 
-
+        Application.targetFrameRate = 60; // Lock to 60 FPS
+        QualitySettings.vSyncCount = 0;   // Make sure VSync doesn’t override
         StartCoroutine(InitSnake());    
     }
 
