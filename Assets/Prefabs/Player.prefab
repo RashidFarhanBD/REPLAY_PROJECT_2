@@ -5102,6 +5102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DustTrail
   particles: {fileID: 8348696422515598575}
+  mov: {fileID: 0}
 --- !u!114 &5260635052542377649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5115,8 +5116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AfterImageEffect
   ghostPrefab: {fileID: 5082543724118479234, guid: 199de475adef3794188316a33a39d5a0, type: 3}
-  spawnInterval: 0.1
-  fadeDuration: 0.2
+  spawnInterval: 0.05
+  fadeDuration: 0.3
   ghostColor: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 5420673483063859145}
 --- !u!1 &882237126346088807
@@ -5146,7 +5147,7 @@ Transform:
   m_GameObject: {fileID: 882237126346088807}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02, y: -0.09, z: 0}
+  m_LocalPosition: {x: 0.02, y: 0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5354,7 +5355,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.70980394, g: 0.34901962, b: 0.03529412, a: 1}
+      key0: {r: 0.6783708, g: 0.75, b: 0.64044946, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 0.19607843}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

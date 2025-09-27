@@ -28,6 +28,8 @@ public class JuiceManager : MonoBehaviour
     public int  shakeVibration=1;
     [Range(0f, 90f)]
     public float  shakeRandomness=15;
+    private Transform land;
+
     //(.2f, 1, 1, 15
     [SerializeField]
     private void Start()
@@ -114,6 +116,12 @@ public class JuiceManager : MonoBehaviour
 
 
 
+    }
+
+    internal void DoCameraShakeForJump(float t, float i)
+    {
+        land.DOShakePosition((float)t, new Vector3(0,1*i,0));
+        
     }
 }
 

@@ -54,6 +54,11 @@ public class GameManager : MonoBehaviour
         juiceManager.DoCameraShakeForJump(transform);
 
     }
+    public void ShakeFromLand2(float t,float i)
+    {
+        juiceManager.DoCameraShakeForJump(t,i);
+
+    }
 
     public void Start()
     {
