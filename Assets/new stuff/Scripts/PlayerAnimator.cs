@@ -88,7 +88,9 @@ public class PlayerAnimator : MonoBehaviour
             return;
         }
 
-      //  anim.SetBool("Grounded", mov.groun)
+        //  anim.SetBool("Grounded", mov.groun)
+        currentVelY =
+       mov.RB.linearVelocity.y;
         anim.SetFloat("Vel Y", mov.RB.linearVelocity.y);
         anim.SetFloat("Vel X", Mathf.Abs(mov.RB.linearVelocity.x));
         anim.SetBool("Dash", Dash);
