@@ -185,7 +185,7 @@ MonoBehaviour:
   gameRestartTime: 2
   snakeOffPos: {x: -35, y: 0, z: 17.5}
   snakeObject: {fileID: 0}
-  snakeDelayTime: 3
+  snakeDelayTime: 2
 --- !u!114 &5138064479657051178
 MonoBehaviour:
   m_ObjectHideFlags: 0
