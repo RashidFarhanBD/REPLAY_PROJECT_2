@@ -143849,7 +143849,7 @@ GameObject:
   - component: {fileID: 1889720695}
   - component: {fileID: 1889720697}
   - component: {fileID: 1889720696}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: platform26d
   m_TagString: Untagged
   m_Icon: {fileID: 0}
