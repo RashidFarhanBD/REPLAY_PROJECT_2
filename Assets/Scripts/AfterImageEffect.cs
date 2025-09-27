@@ -49,8 +49,13 @@ public class AfterImageEffect : MonoBehaviour
             sr.color = ghostColor;
 
             // Tween alpha to 0 over fadeDuration
-            
-            sr.transform.DOScale(Vector3.one*1.1f, fadeDuration / 2).SetEase(Ease.Linear).OnComplete(() => { sr.transform.DOScale(Vector3.zero, fadeDuration / 2); });
+
+            // sr.transform.DOScale(Vector3.one*1.1f, fadeDuration / 2).SetEase(Ease.Linear).OnComplete(() => { sr.transform.DOScale(Vector3.zero, fadeDuration / 2); });
+
+            sr.transform.DOShakeScale(fadeDuration ,1.15f);
+           //s sr.transform.DOShakePosition(.2f, 1);
+
+            sr.transform.DOScale(Vector3.zero, fadeDuration);
             sr.DOFade(0f, fadeDuration).SetEase(Ease.Linear)
                 .OnComplete(() => Destroy(ghost));
         }

@@ -123312,17 +123312,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 196873019350081707, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: m_Name
-      value: idk what this is
-      objectReference: {fileID: 0}
     - target: {fileID: 654590625011772493, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1107308032432990884, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.x
@@ -123364,9 +123356,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8959101582394727497, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 5260635052542377649, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: fadeDuration
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5260635052542377649, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
+      propertyPath: spawnInterval
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
