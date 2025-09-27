@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
         snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration).OnComplete(() =>
         {
-             juiceManager.DoCameraShakeForSnake(Camera.main);
+            // juiceManager.DoCameraShakeForSnake(Camera.main);
             juiceManager.Flash(.3f);
             SoundManager.Instance.ResumeBGM();
 
