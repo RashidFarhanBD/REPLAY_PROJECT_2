@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    PlayerDeathEffect fx;  
     public  float snakeMoveDuration = 2f;
     public static GameManager instance;
     public PlayerMovement playerMovement;
@@ -91,13 +93,15 @@ public class GameManager : MonoBehaviour
         playerMovement.RB.linearVelocity = Vector2.zero;
         playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
         sceneMover.switchCameraMove(false);
-        Camera.main.DOShakePosition(.6f, 1.2f, 15, 120);
+        // fx.Die();
         SoundManager.Instance.PlayDeath();
         juiceManager.DoCameraShakeForTrap(Camera.main);
         juiceManager.DoHitFx(playerMovement.GetComponentInChildren<SpriteRenderer>());
-
+        
         StartCoroutine(RestartLevel());
     }
+
+
 
     private void Traps_OnHitTrap(Traps obj)
     {
@@ -121,7 +125,8 @@ public class GameManager : MonoBehaviour
 
     IEnumerator RestartLevel()
     {
-
+       
+      
 
         yield return new WaitForSeconds(gameRestartTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
