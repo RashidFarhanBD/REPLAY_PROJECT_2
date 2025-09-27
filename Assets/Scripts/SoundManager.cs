@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource sfxSource; // For one-shot sounds
     [SerializeField] private AudioSource bgmSource;  // For  background music
+    [SerializeField] private AudioSource snakeSOundsrc;  // For  background music
 
     [Header("Clips")]
     [SerializeField] private AudioClip jumpClip;
@@ -19,8 +21,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] public AudioClip pickUPclip;
 
     public float BGMVolume;
-    private AudioClip clip1;
-    private AudioClip clip2;
+    [SerializeField] public AudioClip clip1;
+    [SerializeField] public AudioClip clip2;
+    [SerializeField] public AudioClip rockbreak;
+    [SerializeField] private float minPitch = 0.75f;
+    [SerializeField] private float maxPitch = 1f;
+    [SerializeField] private float minDelay= 10;
+    [SerializeField] private float maxDelay= 30;
 
     private void Awake()
     {
@@ -36,6 +43,10 @@ public class SoundManager : MonoBehaviour
         // Keep between scenes
     }
 
+    private void Start()
+    {
+        StartCoroutine(PlayRandomClips());
+    }
 
     #region --- BGM with Fade ---
     public void PlayBGM(AudioClip clip , float fadeDuration = 1f, bool loop = true)
@@ -131,13 +142,32 @@ public class SoundManager : MonoBehaviour
         PlaySFX(pickUPclip);
     }
 
-    public void PlayMonsterSound()
+
+
+    private System.Collections.IEnumerator PlayRandomClips()
+    {
+        while (true)
+        {
+            // wait a random delay
+            float delay = Random.Range(minDelay, maxDelay);
+            yield return new WaitForSeconds(delay);
+            PlayRandomMonsterSound();
+
+        }
+    }
+
+    public void PlayRandomMonsterSound()
     {
 
         AudioClip chosenClip = (Random.value > 0.5f) ? clip1 : clip2;
+        snakeSOundsrc.pitch = Random.Range(minPitch, maxPitch);
+
+        // play the sound
+        snakeSOundsrc.PlayOneShot(chosenClip);
+      
     }
 
-    private void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip)
     {
         if (clip != null && sfxSource != null)
             sfxSource.PlayOneShot(clip);

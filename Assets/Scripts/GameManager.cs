@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private const float snakeDuration = 2.5f;
+    public  float snakeMoveDuration = 2f;
     public static GameManager instance;
     public PlayerMovement playerMovement;
     public SceneMover sceneMover;   
@@ -37,12 +37,13 @@ public class GameManager : MonoBehaviour
        // SoundManager.Instance.PauseBGM();
 
 
-
-        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeDuration).OnComplete(() =>
+        
+        snakeObject.transform.DOLocalMoveX(snakeStartingPos.x, snakeMoveDuration).OnComplete(() =>
         {
-             juiceManager.DoCameraShakeForSnake(Camera.main);
+            SoundManager.Instance.PlaySFX(SoundManager.Instance.rockbreak);
+            // juiceManager.DoCameraShakeForSnake(Camera.main);
             juiceManager.Flash(.3f);
-            SoundManager.Instance.ResumeBGM();
+           // SoundManager.Instance.ResumeBGM();
 
         }
         );
