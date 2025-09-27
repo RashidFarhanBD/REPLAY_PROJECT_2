@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Snake stuff")]
     Vector2 snakeStartingPos = new Vector3 (-25,0,20);
-    Vector2 snakeOffPos = new Vector3 (-35,0,17.5f);
+   
+    [SerializeField]Vector3 snakeOffPos = new Vector3 (-35,0,17.5f);
    
     public GameObject snakeObject;
     public float snakeDelayTime;
