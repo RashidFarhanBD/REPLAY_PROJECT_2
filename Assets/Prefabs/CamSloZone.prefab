@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4376777271093768755
 Transform:
   m_ObjectHideFlags: 0
@@ -150,5 +150,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5abc4324e0eb724fbd9acafa54eb4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StaticCameraZones
-  overrideSpeed: 5.4
-  transitionTime: 3
+  overrideSpeed: 1.84
+  transitionTime: 0.79
+  boltCamera: 0
+  boltCamSpeed: 10.69
+  boltTransitionTime: 0.5
+  boltWaitTime: 2
+  waitTimer: 0
