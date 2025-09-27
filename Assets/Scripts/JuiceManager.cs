@@ -40,6 +40,11 @@ public class JuiceManager : MonoBehaviour
 
     }
 
+    public void DoMildCamShake()
+    {
+
+        Camera.main.DOShakePosition(.34f, 1.2f, 15, 1);
+    }
     public void FadeToWhite()
     {
         fadeImage.DOFade(1f, fadeDuration); // alpha → 1 (white)

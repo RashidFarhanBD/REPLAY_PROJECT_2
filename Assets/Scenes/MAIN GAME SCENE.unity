@@ -122051,22 +122051,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: rotateSpeed
-      value: 1084.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: fadeDuration
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: moveDuration
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1600236726031460126, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
-      propertyPath: scaleMultiplier
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3161685619185296429, guid: 1e23965f853d8804f8ca0836046523ae, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.88
