@@ -298,6 +298,7 @@ public class PlayerMovement : MonoBehaviour
 		#region SLIDE CHECKS
 		if (CanSlide() && ((LastOnWallLeftTime > 0 && _moveInput.x < 0) || (LastOnWallRightTime > 0 && _moveInput.x > 0)))
 			IsSliding = true;
+		 
 		else
 			IsSliding = false;
 		#endregion
@@ -620,9 +621,13 @@ public class PlayerMovement : MonoBehaviour
     }
 
 	private bool CanWallJump()
-    {
-		return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
-			 (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
+    { if (RB.linearVelocityY >= 0) return false;
+
+	else if (IsSliding) return true;
+
+		return false;
+		//return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
+		//	 (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
 	}
 
 	private bool CanJumpCut()

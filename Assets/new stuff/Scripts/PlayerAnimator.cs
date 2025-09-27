@@ -92,5 +92,6 @@ public class PlayerAnimator : MonoBehaviour
         anim.SetFloat("Vel Y", mov.RB.linearVelocity.y);
         anim.SetFloat("Vel X", Mathf.Abs(mov.RB.linearVelocity.x));
         anim.SetBool("Dash", Dash);
+        anim.SetBool("holdWall", mov.IsSliding);
     }
 }
