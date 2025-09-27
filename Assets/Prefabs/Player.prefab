@@ -5102,6 +5102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DustTrail
   particles: {fileID: 8348696422515598575}
+  mov: {fileID: 0}
 --- !u!114 &5260635052542377649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5115,8 +5116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AfterImageEffect
   ghostPrefab: {fileID: 5082543724118479234, guid: 199de475adef3794188316a33a39d5a0, type: 3}
-  spawnInterval: 0.1
-  fadeDuration: 0.2
+  spawnInterval: 0.05
+  fadeDuration: 0.3
   ghostColor: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 5420673483063859145}
 --- !u!1 &882237126346088807

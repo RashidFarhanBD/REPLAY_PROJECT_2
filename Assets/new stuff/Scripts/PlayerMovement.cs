@@ -177,8 +177,17 @@ public class PlayerMovement : MonoBehaviour
 				
 				if(LastOnGroundTime < -0.1f)
                 {
-                   // Debug.Log(" ground check okay??");
+                    Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
+                    // Debug.Log(" ground check okay??");
                     AnimHandler.justLanded = true;
+					var vel =   Mathf.Abs(  RB.linearVelocityY);
+					if(vel>=20)
+					{
+                        var i = Mathf.Clamp(vel*0.005f,2f,1f);
+                        GameManager.instance.ShakeFromLand2(.2f,i);
+
+                    }	
+					
                 }
 
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
