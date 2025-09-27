@@ -50,7 +50,7 @@ public class AfterImageEffect : MonoBehaviour
 
             // Tween alpha to 0 over fadeDuration
             
-            sr.transform.DOScale(Vector3.one*1.2f, fadeDuration / 2).SetEase(Ease.Linear).OnComplete(() => { sr.transform.DOScale(Vector3.zero, fadeDuration / 2); });
+            sr.transform.DOScale(Vector3.one*1.1f, fadeDuration / 2).SetEase(Ease.Linear).OnComplete(() => { sr.transform.DOScale(Vector3.zero, fadeDuration / 2); });
             sr.DOFade(0f, fadeDuration).SetEase(Ease.Linear)
                 .OnComplete(() => Destroy(ghost));
         }

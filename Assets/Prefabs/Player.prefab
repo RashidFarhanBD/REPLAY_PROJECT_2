@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3468266328539779662}
   - component: {fileID: 5785104748168703215}
   m_Layer: 3
-  m_Name: Dust trail (1)
+  m_Name: idk what this is
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5116,7 +5116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AfterImageEffect
   ghostPrefab: {fileID: 5082543724118479234, guid: 199de475adef3794188316a33a39d5a0, type: 3}
   spawnInterval: 0.1
-  fadeDuration: 0.3
+  fadeDuration: 0.2
   ghostColor: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 5420673483063859145}
 --- !u!1 &882237126346088807
@@ -10522,7 +10522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9065177011190119822
 Transform:
   m_ObjectHideFlags: 0
