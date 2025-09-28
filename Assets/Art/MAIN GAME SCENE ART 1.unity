@@ -111789,7 +111789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
       propertyPath: boltWaitTime
-      value: 1
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 5953393056265354768, guid: bb205519ce0a056409a95c751ce9af1d, type: 3}
       propertyPath: overrideSpeed
