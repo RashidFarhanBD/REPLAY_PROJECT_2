@@ -199,13 +199,13 @@ public class GameManager : MonoBehaviour
 
             snakeObject.SetActive(false);
             playerMovement.enabled = false;
-
+            isGameOver = true;
             playerMovement.RB.linearVelocity = Vector2.zero;
             playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
             sceneMover.switchCameraMove(false);
             juiceManager.FadeToWhite();
             SoundManager.Instance.StopBGM();    
-
+            RestartLevel();
 
         }
     }
