@@ -202,13 +202,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::JuiceManager
   hitfxMat: {fileID: -876546973899608171, guid: a3d800b099a06e0478fb790c5e79057a, type: 3}
   flashImage: {fileID: 8285601126464091508}
-  level: {fileID: 0}
   fadeImage: {fileID: 5205022038883892588}
   fadeDuration: 0.5
   shakeTime: 0.1
   shakeStrenght: 0.1
   shakeVibration: 0
   shakeRandomness: 15
+  land: {fileID: 0}
 --- !u!114 &5254042672661428617
 MonoBehaviour:
   m_ObjectHideFlags: 0

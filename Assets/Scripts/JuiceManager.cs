@@ -44,7 +44,7 @@ public class JuiceManager : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            ShakeWorld();
+         //   ShakeWorld();
 
         }
     }
@@ -142,8 +142,13 @@ public class JuiceManager : MonoBehaviour
 
     internal void DoCameraShakeForJump(float t, float i)
     {
-        land.DOShakePosition((float)t, i,5,0);
-        
+      //  land.DOShakePosition((float)t, i,5,0);
+    //    land.DOShakeRotation((float)t, i,5,0);
+       // Camera.main.DOShakeRotation((float)t, new Vector3(1 * i,1,0));
+        Camera.main.DOShakePosition((float)t, new Vector3(1 * i,1,0));
+     //   Camera.main.DOShakePosition((float)t, i, 5, 0);
+
+
     }
 }
 

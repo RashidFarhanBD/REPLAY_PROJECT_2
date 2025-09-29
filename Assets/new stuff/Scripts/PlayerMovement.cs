@@ -214,12 +214,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                   //  Debug.Log(GetComponent<Rigidbody2D>().linearVelocityY);
 
-                    var vel = Mathf.Abs(RB.linearVelocityY);
-                    if (vel >= 20)
+                    var vel = Mathf.Abs(LastOnGroundTime);
+                    if (vel >= .9f)
                     {
                         //Debug.Log("shake??");
                         var i = Mathf.Clamp(vel * .5f, .2f, 1.5f);
-                      //  GameManager.instance.ShakeFromLand2(.2f, i);
+                        GameManager.instance.ShakeFromLand2(.2f, i);
 
                     }
                     // Debug.Log(" ground check okay??");
