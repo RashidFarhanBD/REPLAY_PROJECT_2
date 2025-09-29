@@ -21,7 +21,7 @@ public class SceneMover : MonoBehaviour
     public float maxTimeToLerp;
     
     //   public float 
-    bool scrollOn =true;
+    bool scrollOn =false;
     private bool overrideCam;
     [SerializeField]
     StaticCameraZones camZone;
@@ -40,6 +40,12 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
         PlayerScreenPOSTracker.OnCameraZoneChanged += PlayerScreenPOSTracker_OnCameraZoneChanged;
         StaticCameraZones.OnCollisionEnter += StaticCameraZones_OnCollisionEnter;
         StaticCameraZones.OnCollistionExit += StaticCameraZones_OnCollistionExit;
+        GameStarter.OnStartPressed += GameStarter_OnStartPressed;
+    }
+
+    private void GameStarter_OnStartPressed()
+    {
+        scrollOn= true;
     }
 
     private void StaticCameraZones_OnCollistionExit(StaticCameraZones obj)
@@ -74,6 +80,8 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
         PlayerScreenPOSTracker.OnCameraZoneChanged -= PlayerScreenPOSTracker_OnCameraZoneChanged;
         StaticCameraZones.OnCollisionEnter -= StaticCameraZones_OnCollisionEnter;
         StaticCameraZones.OnCollistionExit -= StaticCameraZones_OnCollistionExit;
+        GameStarter.OnStartPressed -= GameStarter_OnStartPressed;
+
 
     }
 

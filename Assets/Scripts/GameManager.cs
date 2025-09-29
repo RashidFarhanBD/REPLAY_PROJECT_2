@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class GameManager : MonoBehaviour
     public  float snakeMoveDuration = 2f;
     public static GameManager instance;
     public PlayerMovement playerMovement;
-    public SceneMover sceneMover;   
+    public SceneMover sceneMover;
+    bool isGameOn;
     bool isGameOver;
     private bool isPlayerDead;
     public JuiceManager juiceManager;
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
     public float snakeDelayTime;
     private Sequence snakeSeq;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public GameObject UI;
     IEnumerator InitSnake()
     {
         snakeSeq?.Kill();
@@ -50,6 +52,18 @@ public class GameManager : MonoBehaviour
         }
         );
 
+
+
+    }
+
+    public void InitUI()
+    {
+        UI.SetActive(true);
+    }
+    public void StopUI()
+    {
+
+        UI.SetActive(false);
 
 
     }
@@ -76,7 +90,8 @@ public class GameManager : MonoBehaviour
 
         Application.targetFrameRate = 60; // Lock to 60 FPS
         QualitySettings.vSyncCount = 0;   // Make sure VSync doesn’t override
-        StartCoroutine(InitSnake());    
+        InitUI();
+        //StartCoroutine(InitSnake());    
     }
 
 
@@ -84,7 +99,21 @@ public class GameManager : MonoBehaviour
     {
         Traps.OnHitTrap += Traps_OnHitTrap;
         Snake.OnSnakeHit += Snake_OnSnakeHit;
+        GameStarter.OnStartPressed += GameStarter_OnStartPressed;
     }
+
+    private void GameStarter_OnStartPressed()
+    {
+        isGameOn = true;
+        StopUI();
+
+        Camera.main.DOShakePosition(1, new Vector3(0, .88F, 0)).SetEase(Ease.InFlash);
+        StartCoroutine(InitSnake());
+
+    }
+
+
+
 
     private void Snake_OnSnakeHit()
     {
@@ -141,6 +170,8 @@ public class GameManager : MonoBehaviour
     {
         Traps.OnHitTrap-= Traps_OnHitTrap;
         Snake.OnSnakeHit -= Snake_OnSnakeHit;
+        GameStarter.OnStartPressed -= GameStarter_OnStartPressed;
+
     }
     private void Awake()
     {
