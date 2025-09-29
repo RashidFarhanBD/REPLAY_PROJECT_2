@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "LeapBound",
+    "maps": [
+        {
+            "name": "Movement",
+            "id": "cf275508-15c6-4347-b693-bd7f40b44faf",
+            "actions": [
+                {
+                    "name": "didddyy",
+                    "type": "Value",
+                    "id": "0177ce3d-20f1-42e0-8dc8-05835f8308f6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e939f58c-3ad6-490e-a8aa-a74a25665fc0",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "didddyy",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

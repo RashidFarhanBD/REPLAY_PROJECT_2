@@ -12,7 +12,6 @@ public class JuiceManager : MonoBehaviour
     [SerializeField] private Image flashImage;
 
 
-    [SerializeField] GameObject level;
 
     [SerializeField] private Image fadeImage; // full-screen white image
     [SerializeField] private float fadeDuration = 0.5f;
@@ -28,7 +27,9 @@ public class JuiceManager : MonoBehaviour
     public int  shakeVibration=1;
     [Range(0f, 90f)]
     public float  shakeRandomness=15;
+    [SerializeField]
     private Transform land;
+    private Transform traps;
 
     //(.2f, 1, 1, 15
     [SerializeField]
@@ -36,8 +37,22 @@ public class JuiceManager : MonoBehaviour
     {
         // Start fully transparent
         fadeImage.color = new Color(1, 1, 1, 0);
-        if (level = null) level = GameObject.Find("Level");
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ShakeWorld();
+
+        }
+    }
+
+    private void ShakeWorld()
+    {
+        land.DOShakePosition(1, new Vector3(0, 1, 0));
+        traps.DOShakePosition(1, new Vector3(0, 1, 0));
     }
 
     public void DoMildCamShake()
@@ -82,7 +97,7 @@ public class JuiceManager : MonoBehaviour
     public void DoCameraShakeForJump(Transform player)
     {
         if (shakeTime <= 0) return;
-        level.transform.DOShakePosition(shakeTime, shakeStrenght, shakeVibration, shakeRandomness);
+       // level.transform.DOShakePosition(shakeTime, shakeStrenght, shakeVibration, shakeRandomness);
 
     }
 

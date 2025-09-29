@@ -205,8 +205,7 @@ public class GameManager : MonoBehaviour
             sceneMover.switchCameraMove(false);
             juiceManager.FadeToWhite();
             SoundManager.Instance.StopBGM();    
-            RestartLevel();
-
+           StartCoroutine( RestartLevel());
         }
     }
 }

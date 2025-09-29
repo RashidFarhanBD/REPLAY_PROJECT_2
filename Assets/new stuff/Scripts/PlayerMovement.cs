@@ -7,8 +7,9 @@
  */
 
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
 	//Scriptable object which holds all the player's movement parameters. If you don't want to use it
@@ -131,7 +132,41 @@ public class PlayerMovement : MonoBehaviour
 		IsFacingRight = true;
 	}
 
-	private void Update()
+    #region INPUT
+
+
+    public void OnMove(InputValue inputValue)
+    {
+		_moveInput.x = inputValue.Get<Vector2>().x;
+		_moveInput.y = inputValue.Get<Vector2>().y;
+
+       
+	}
+	public void OnDash(InputValue inputValue)
+    {
+		OnDashInput();
+
+
+    }
+
+	public void OnJump(InputValue inputValue)
+    {
+		if (inputValue.isPressed)
+		{
+			OnJumpInput();
+
+        }
+		else
+		{
+
+			OnJumpUpInput();
+
+        }
+
+	}
+    #endregion
+
+    private void Update()
 	{
 		if (GameManager.instance.GetIsPlayerDead()) return;
 
@@ -146,26 +181,26 @@ public class PlayerMovement : MonoBehaviour
 		#endregion
 
 		#region INPUT HANDLER
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
+		//_moveInput.x = Input.GetAxisRaw("Horizontal");
+		//_moveInput.y = Input.GetAxisRaw("Vertical");
 
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
-		if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
-        {
-			OnJumpInput();
-        }
+		//if(Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.J))
+  //      {
+		//	OnJumpInput();
+  //      }
 
-		if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
-		{
-			OnJumpUpInput();
-		}
+		//if (Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.C) || Input.GetKeyUp(KeyCode.J))
+		//{
+		//	OnJumpUpInput();
+		//}
 
-		if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.K))
-		{
-			OnDashInput();
-		}
+		//if (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) || Input.GetKeyDown(KeyCode.K))
+		//{
+		//	OnDashInput();
+		//}
 		#endregion
 
 		#region COLLISION CHECKS

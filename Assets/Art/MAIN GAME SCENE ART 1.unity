@@ -19014,6 +19014,14 @@ PrefabInstance:
       value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: land
+      value: 
+      objectReference: {fileID: 1072393864}
+    - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: level
+      value: 
+      objectReference: {fileID: 1072393863}
+    - target: {fileID: 5138064479657051178, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
       propertyPath: shakeTime
       value: 0.1
       objectReference: {fileID: 0}
