@@ -59,7 +59,11 @@ public class GameManager : MonoBehaviour
     public void InitUI()
     {
         UI.SetActive(true);
+        UI.transform.DOPunchScale(.01f * Vector3.one, 5, 0, 0).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.OutSine);
+       // UI.GetComponent<Image>().alpga   
+    
     }
+
     public void StopUI()
     {
 

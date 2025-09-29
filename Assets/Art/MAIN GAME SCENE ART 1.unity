@@ -19434,6 +19434,10 @@ PrefabInstance:
       propertyPath: snakeObject
       value: 
       objectReference: {fileID: 3394694764968561139}
+    - target: {fileID: 1900740196190286323, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
+      propertyPath: m_Color.a
+      value: 0.20392157
+      objectReference: {fileID: 0}
     - target: {fileID: 2018347305237482760, guid: d84effa40b9789546a69f2d9bec233a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.04068
