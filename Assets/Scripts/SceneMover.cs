@@ -113,7 +113,7 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
     private void Update()
     {
       
-        if (isLerping)
+        /*if (isLerping)
         {
 
 
@@ -139,8 +139,18 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
             }
 
         }
-        else
+        else*/
         {
+            currentScrollSpeed = Mathf.MoveTowards(currentScrollSpeed, targetScrollSpeed, 10.0f * Time.deltaTime);
+            if (currentScrollSpeed == targetScrollSpeed)
+            {
+                if (camZone != null && camZone.IsBolting == true)
+                {
+                    camZone.boltTranistionFinished();
+                }
+            }
+
+          //  Debug.Log($"Current camera speed = {currentScrollSpeed}, target = {targetScrollSpeed}");
             if (camZone != null && camZone.boltCamera && !camZone.IsBolting)
             {
 
@@ -148,11 +158,13 @@ public bool OverrideCam { get => overrideCam; set => overrideCam = value; }
                 {
 
                     InitCamToNewValue(camZone.transitionTime, camZone.overrideSpeed);
+                    //Debug.Log("Stopping the camera");
 
                 }
                 else
                 {
                     camZone.waitTimer -= Time.deltaTime;
+                   // Debug.Log("Wait for stopping the camera");
                 }
 
 

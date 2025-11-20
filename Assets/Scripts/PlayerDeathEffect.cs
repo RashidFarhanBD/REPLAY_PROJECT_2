@@ -31,13 +31,13 @@ public class PlayerDeathEffect : MonoBehaviour
 
         // Create sequence
         Sequence deathSeq = DOTween.Sequence();
-
+       
         // Move player to center of screen
         deathSeq.Append(transform.DOMove(targetPos, moveDuration).SetEase(Ease.InCubic));
 
         // Scale up while moving
         deathSeq.Join(transform.DOScale(scaleMultiplier, moveDuration).SetEase(Ease.OutQuad));
-
+        
         // Fade out at the end
         if (sr != null)
         {

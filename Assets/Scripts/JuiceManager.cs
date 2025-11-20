@@ -14,7 +14,9 @@ public class JuiceManager : MonoBehaviour
 
 
     [SerializeField] private Image fadeImage; // full-screen white image
+    [SerializeField] private Image fadeImageBlack; // full-screen white image
     [SerializeField] private float fadeDuration = 0.5f;
+    [SerializeField] private float fadeDurationBlack = 1.5f;
 
     [Header("Jump")]
 
@@ -37,6 +39,7 @@ public class JuiceManager : MonoBehaviour
     {
         // Start fully transparent
         fadeImage.color = new Color(1, 1, 1, 0);
+        fadeImageBlack.color = new Color(0, 0, 0, 0);
 
     }
 
@@ -63,6 +66,12 @@ public class JuiceManager : MonoBehaviour
     public void FadeToWhite()
     {
         fadeImage.DOFade(1f, fadeDuration); // alpha → 1 (white)
+    }
+    public void FadeToBlack()
+    {
+
+        fadeImageBlack.DOFade(1f, fadeDurationBlack); // alpha → 1 (white)
+
     }
 
     public void FadeFromWhite()
@@ -119,7 +128,9 @@ public class JuiceManager : MonoBehaviour
         renderer.transform.DOShakeRotation(1.5f, 1, 15, 90);
         Flash();
         renderer.transform.DOScale(Vector3.zero, 1.5f).SetDelay(1f);
-        
+        FadeToBlack();
+
+
     }
 
     

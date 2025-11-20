@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private Sequence snakeSeq;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject UI;
+    public GameObject gamewincanvas;
     IEnumerator InitSnake()
     {
         snakeSeq?.Kill();
@@ -229,6 +230,11 @@ public class GameManager : MonoBehaviour
 
     internal void GAMEWIN()
     {
+        StartCoroutine(WinCoroutine());
+    }
+
+    private IEnumerator WinCoroutine()
+    {
         if (!isPlayerDead)
         {
 
@@ -239,8 +245,16 @@ public class GameManager : MonoBehaviour
             playerMovement.RB.bodyType = RigidbodyType2D.Kinematic;
             sceneMover.switchCameraMove(false);
             juiceManager.FadeToWhite();
-            SoundManager.Instance.StopBGM();    
-           StartCoroutine( RestartLevel());
+            
+            SoundManager.Instance.StopBGM();
+            yield return new WaitForSeconds(1.5f);
+            gamewincanvas.SetActive(true);
+            yield return new WaitForSeconds(6);
+
+            SceneManager.LoadScene(0);
+
+            yield return null;
         }
+        yield return null;
     }
 }

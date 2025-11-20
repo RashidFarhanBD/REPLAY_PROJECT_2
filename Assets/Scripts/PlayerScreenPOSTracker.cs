@@ -75,7 +75,7 @@ public class PlayerScreenPOSTracker : MonoBehaviour
         if(oldZone!= targetZone)
         {
 
-            Debug.Log("zone changed");
+           // Debug.Log("zone changed");
             OnCameraZoneChanged?.Invoke(targetZone);
             oldZone = targetZone;
         }
